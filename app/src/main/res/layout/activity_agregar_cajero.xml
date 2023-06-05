@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".Categorias.Caja.AgregarCajero">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="@string/DniTXTCajero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/DniCajero"
+                android:hint="@string/DniCajero"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="@string/NombreTXTCajero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/NombreCajero"
+                android:hint="@string/NombreCajero"
+                android:inputType="textCapWords|textAutoCorrect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="@string/ApellidoTXTCajero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/ApellidoCajero"
+                android:hint="@string/ApellidoCajero"
+                android:inputType="textCapWords|textAutoCorrect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="@string/EdadTXTCajero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/EdadCajero"
+                android:hint="@string/EdadCajero"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:text="@string/DescripcionTXTCajero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/DescripcionCajero"
+                android:hint="@string/DescripcionCajero"
+                android:inputType="textCapWords|textAutoCorrect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ImagenAgregarCocina"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/imagen_icon"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/AgregarCajero"
+            android:text="@string/AgregarCajero"
+            android:background="@drawable/btn_personalizado"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

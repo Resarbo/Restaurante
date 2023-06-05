@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">Restaurante</string>
+    <string name="desarrollador">Desarrollador por: Grupo UTP</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Menu Admin-->
+    <string name="InicioAdmin">Inicio</string>
+    <string name="PerfilAdmin">Perfil</string>
+    <string name="ResgistrarAdmin">Registrar</string>
+    <string name="Cartilla">Cartilla</string>
+    <string name="Salir">Salir</string>
+
+    <!--Login de administradores-->
+    <string name="LoginTXT">Login de administradores</string>
+    <string name="Ingresar">Ingresar</string>
+    <string name="Acceder">Acceder</string>
+
+    <!--Registro de Personal-->
+    <string name="RegistroTXT">Registro de Admin</string>
+    <string name="Correo">Correo electronico</string>
+    <string name="Password">Contraseña</string>
+    <string name="Nombres">Nombres completos</string>
+    <string name="Apellidos">Apellidos completos</string>
+    <string name="Dni">Dni</string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="FechaRegistro">Fecha de registro</string>
+    <string name="Registrar">Registrar</string>
+
+    <!--Categorias-->
+    <string name="Eligeunacategoriatxt">Elige una categoria</string>
+    <string name="Cocina">COCINA</string>
+    <string name="Caja">CAJA</string>
+    <string name="Mesas">MESEROS</string>
+    <string name="Platos">PLATOS</string>
+
+    <!--Perfil-->
+    <string name="PERFILADMINISTRADORTXT">Mi perfil</string>
+    <string name="MIINFORMACIONTXT">Mi informacion</string>
+    <string name="DNIPERFILTXT">DNI:</string>
+    <string name="DNIPERFIL">--</string>
+    <string name="NOMBRESPERFILTXT">Nombres:</string>
+    <string name="NOMBRESPERFIL">--</string>
+    <string name="APELLIDOSPERFILTXT">Apellidos:</string>
+    <string name="APELLIDOSPERFIL">--</string>
+    <string name="CORREOPERFILTXT">Correo:</string>
+    <string name="CORREOPERFIL">--</string>
+    <string name="PASSWORDPERFILTXT">Password:</string>
+    <string name="PASSWORDPERFIL">--</string>
+    <string name="EDADPERFILTXT">Edad:</string>
+    <string name="EDADPERFIL">--</string>
+    <string name="AREAPERFILTXT">Area:</string>
+    <string name="AREAPERFIL">--</string>
+    <string name="DESCRIPCIONPERFILTXT">Descripcion:</string>
+    <string name="DESCRIPCIONPERFIL">--</string>
+    <string name="ACTUALIZARPASS">Actualizar password</string>
+    <string name="ACTUALIZARDATOS">Actualizar Datos</string>
+
+    <!--Item pelicula-->
+    <string name="NombreImagenCocina"> -- </string>
+    <string name="DescripcionCocina"> -- </string>
+
+    <!--Menu parte superior derecha-->
+    <string name="Agregar">Agregar</string>
+
+    <!--Agregar Cocina-->
+    <string name="DniTXTCocinero">DNI de cocinero</string>
+    <string name="DniCocinero">Escriba DNI aqui</string>
+    <string name="NombreTXTCocinero">Nombre de cocinero</string>
+    <string name="NombreCocinero">Escriba nombre aqui</string>
+    <string name="ApellidoTXTCocinero">Apellido de cocinero</string>
+    <string name="ApellidoCocinero">Escriba apellido aqui</string>
+    <string name="EdadTXTCocinero">Edad de cocinero</string>
+    <string name="EdadCocinero">Escriba edad aqui</string>
+    <string name="DescripcionTXTCocinero">Descripcion de cocinero</string>
+    <string name="DescripcionCocinero">Escriba descripcion aqui</string>
+    <string name="AgregarCocinero">Agregar</string>
+
+    <!--Agregar Cajero-->
+    <string name="DniTXTCajero">DNI de Cajero</string>
+    <string name="DniCajero">Escriba DNI aqui</string>
+    <string name="NombreTXTCajero">Nombre de cajero</string>
+    <string name="NombreCajero">Escriba nombre aqui</string>
+    <string name="ApellidoTXTCajero">Apellido de cajero</string>
+    <string name="ApellidoCajero">Escriba apellido aqui</string>
+    <string name="EdadTXTCajero">Edad de cajero</string>
+    <string name="EdadCajero">Escriba edad aqui</string>
+    <string name="DescripcionTXTCajero">Descripcion de cajero</string>
+    <string name="DescripcionCajero">Escriba descripcion aqui</string>
+    <string name="AgregarCajero">Agregar</string>
+
+    <!--Agregar Mesero-->
+    <string name="DniTXTMesero">DNI de mesero</string>
+    <string name="DniMesero">Escriba DNI aqui</string>
+    <string name="NombreTXTMesero">Nombre de mesero</string>
+    <string name="NombreMesero">Escriba nombre aqui</string>
+    <string name="ApellidoTXTMesero">Apellido de mesero</string>
+    <string name="ApellidoMesero">Escriba apellido aqui</string>
+    <string name="EdadTXTMesero">Edad de mesero</string>
+    <string name="EdadMesero">Escriba edad aqui</string>
+    <string name="DescripcionTXTMesero">Descripcion de mesero</string>
+    <string name="DescripcionMesero">Escriba descripcion aqui</string>
+    <string name="AgregarMesero">Agregar</string>
+
+    <!--Agregar Plato-->
+    <string name="IdTXTPlato">ID de mesero</string>
+    <string name="IdPlato">Escriba ID aqui</string>
+    <string name="NombreTXTPlato">Nombre de plato</string>
+    <string name="NombrePlato">Escriba nombre aqui</string>
+    <string name="CantidadTXTPlato">Cantidad de plato</string>
+    <string name="CantidadPlato">Escriba nombre aqui</string>
+    <string name="DescripcionTXTPlato">Descripcion de plato</string>
+    <string name="DescripcionPlato">Escriba descripcion aqui</string>
+    <string name="AgregarPlato">Agregar</string>
+
+    <string name="EliminarCocinero">Eliminar</string>
+
+    <!--Menu Cliente-->
+    <string name="Opcionestxt">Opciones</string>
+    <string name="InicioCliente">Inicio</string>
+
+    <string name="MasOpcionestxt">Más opciones</string>
+    <string name="AcercaDe">Acerca de</string>
+    <string name="Compartir">Compartir</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
