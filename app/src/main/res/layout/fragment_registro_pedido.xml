@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff"
-    tools:context=".FragmentosAdmin.RegistroAdmin">
+    tools:context=".FragmentosAdmin.RegistrarPedido">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/RegistroAdminTXT"
+            android:text="@string/RegistroPedido"
             android:gravity="center"
             android:textColor="#000"
             android:textStyle="bold"
@@ -31,38 +31,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <EditText
-                android:id="@+id/CorreoAdmin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/CorreoAdmin"
-                android:inputType="textEmailAddress"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:id="@+id/PasswordAdmin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/PasswordAdmin"
-                android:inputType="textPassword"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Spinner
-                android:id="@+id/tipoAdmin"
+                android:id="@+id/tipoPlato"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -70,11 +42,50 @@
                 android:layout_weight="1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/RegistrarAdmin"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/RegistrarAdmin"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/CantidadPedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/CantidadPedido"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/PrecioUnitarioPedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/PrecioUnitarioPedido"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/PrecioTotalPedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/PrecioTotalPedido"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/RegistrarPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/RegistrarPedido"
             android:background="#58ACFA"
             android:textColor="#ffffff"
             android:layout_marginTop="20dp"/>

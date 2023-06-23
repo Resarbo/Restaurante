@@ -10,9 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.restaurante.FragmentosCliente.AcercaDeCliente;
-import com.example.restaurante.FragmentosCliente.CompartirCliente;
-import com.example.restaurante.FragmentosCliente.InicioCliente;
+import com.example.restaurante.FragmentosEmpleado.AcercaDeCliente;
+import com.example.restaurante.FragmentosEmpleado.CompartirCliente;
+import com.example.restaurante.FragmentosEmpleado.InicioCliente;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

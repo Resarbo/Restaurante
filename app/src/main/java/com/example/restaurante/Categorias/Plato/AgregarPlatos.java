@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class AgregarPlatos extends AppCompatActivity {
-    TextView IdPlato, NombrePlato, CantidadPlato, DescripcionPlato;
+    TextView NombrePlato, CantidadPlato, DescripcionPlato, PrecioPlato;
     Button AgregarPlato;
 
     @Override
@@ -33,8 +33,8 @@ public class AgregarPlatos extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-        IdPlato = findViewById(R.id.IdPlato);
         NombrePlato = findViewById(R.id.NombrePlato);
+        PrecioPlato = findViewById(R.id.PrecioPlato);
         CantidadPlato = findViewById(R.id.CantidadPlato);
         DescripcionPlato = findViewById(R.id.DescripcionPlato);
 
@@ -49,11 +49,12 @@ public class AgregarPlatos extends AppCompatActivity {
     }
 
     private void SubirPlato() {
+        int id = 0;
         Connection connection = Conexion.connectionclass();
         try{
             if(connection!= null){
-                String query =  "Insert into Platos values ('" + IdPlato.getText().toString() + "','"
-                        + NombrePlato.getText().toString() + "','"
+                String query =  "Insert into Platos values ('" + NombrePlato.getText().toString() + "','"
+                        + PrecioPlato.getText().toString() + "','"
                         + CantidadPlato.getText().toString() + "','"
                         + DescripcionPlato.getText().toString() + "')";
                 Statement st = connection.createStatement();

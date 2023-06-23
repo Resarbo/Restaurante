@@ -7,7 +7,9 @@
     <!--Menu Admin-->
     <string name="InicioAdmin">Inicio</string>
     <string name="PerfilAdmin">Perfil</string>
-    <string name="ResgistrarAdmin">Registrar</string>
+    <string name="ResgistrarAdmin">Registrar Admin</string>
+    <string name="ResgistrarPersonal">Registrar Personal</string>
+    <string name="ResgistrarPedido">Registrar Pedido</string>
     <string name="Cartilla">Cartilla</string>
     <string name="Salir">Salir</string>
 
@@ -16,15 +18,19 @@
     <string name="Ingresar">Ingresar</string>
     <string name="Acceder">Acceder</string>
 
+    <!--Registro de Admin-->
+    <string name="RegistroAdminTXT">Registro de Admin</string>
+    <string name="CorreoAdmin">Correo electronico</string>
+    <string name="PasswordAdmin">Contraseña</string>
+    <string name="RegistrarAdmin">Registrar</string>
+
     <!--Registro de Personal-->
-    <string name="RegistroTXT">Registro de Admin</string>
-    <string name="Correo">Correo electronico</string>
-    <string name="Password">Contraseña</string>
+    <string name="RegistroTXT">Registro de Personal</string>
     <string name="Nombres">Nombres completos</string>
     <string name="Apellidos">Apellidos completos</string>
     <string name="Dni">Dni</string>
     <string name="Descripcion">Descripcion</string>
-    <string name="FechaRegistro">Fecha de registro</string>
+    <string name="FechaNacimiento">Fecha de Nacimiento</string>
     <string name="Registrar">Registrar</string>
 
     <!--Categorias-->
@@ -47,8 +53,8 @@
     <string name="CORREOPERFIL">--</string>
     <string name="PASSWORDPERFILTXT">Password:</string>
     <string name="PASSWORDPERFIL">--</string>
-    <string name="EDADPERFILTXT">Edad:</string>
-    <string name="EDADPERFIL">--</string>
+    <string name="FECHANACIMINETOPERFILTXT">Fecha de nacimiento:</string>
+    <string name="FECHANACIMINETOPERFIL">--</string>
     <string name="AREAPERFILTXT">Area:</string>
     <string name="AREAPERFIL">--</string>
     <string name="DESCRIPCIONPERFILTXT">Descripcion:</string>
@@ -108,7 +114,9 @@
     <string name="NombreTXTPlato">Nombre de plato</string>
     <string name="NombrePlato">Escriba nombre aqui</string>
     <string name="CantidadTXTPlato">Cantidad de plato</string>
-    <string name="CantidadPlato">Escriba nombre aqui</string>
+    <string name="CantidadPlato">Escriba cantidad aqui</string>
+    <string name="PrecioTXTPlato">Precio de plato</string>
+    <string name="PrecioPlato">Escriba precio aqui</string>
     <string name="DescripcionTXTPlato">Descripcion de plato</string>
     <string name="DescripcionPlato">Escriba descripcion aqui</string>
     <string name="AgregarPlato">Agregar</string>
@@ -122,6 +130,13 @@
     <string name="MasOpcionestxt">Más opciones</string>
     <string name="AcercaDe">Acerca de</string>
     <string name="Compartir">Compartir</string>
+
+    <!--Pedido-->
+    <string name="RegistroPedido">Registro de Pedido</string>
+    <string name="CantidadPedido">Cantidad</string>
+    <string name="PrecioUnitarioPedido">Precio Unitario</string>
+    <string name="PrecioTotalPedido">Precio Total</string>
+    <string name="RegistrarPedido">Registrar</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

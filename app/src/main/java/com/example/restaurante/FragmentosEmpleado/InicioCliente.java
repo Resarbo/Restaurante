@@ -1,4 +1,4 @@
-package com.example.restaurante.FragmentosCliente;
+package com.example.restaurante.FragmentosEmpleado;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.restaurante.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CompartirCliente#newInstance} factory method to
+ * Use the {@link InicioCliente#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CompartirCliente extends Fragment {
+public class InicioCliente extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class CompartirCliente extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CompartirCliente() {
+    public InicioCliente() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class CompartirCliente extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CompartirCliente.
+     * @return A new instance of fragment InicioCliente.
      */
     // TODO: Rename and change types and number of parameters
-    public static CompartirCliente newInstance(String param1, String param2) {
-        CompartirCliente fragment = new CompartirCliente();
+    public static InicioCliente newInstance(String param1, String param2) {
+        InicioCliente fragment = new InicioCliente();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class CompartirCliente extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_compartir_cliente, container, false);
+        return inflater.inflate(R.layout.fragment_inicio_cliente, container, false);
     }
 }

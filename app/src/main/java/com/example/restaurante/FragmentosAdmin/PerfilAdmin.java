@@ -4,63 +4,67 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PerfilAdmin#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class PerfilAdmin extends Fragment {
+    Connection connection = Conexion.connectionclass();
+    TextView DNIPERFIL,NOMBRESPERFIL,APELLIDOSPERFIL,CORREOPERFIL,PASSWORDPERFIL,FECHANACIMINETOPERFIL,AREAPERFIL,DESCRIPCIONPERFIL;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PerfilAdmin() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PerfilAdmin.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PerfilAdmin newInstance(String param1, String param2) {
-        PerfilAdmin fragment = new PerfilAdmin();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    int id_usuario=8, id_empleado_tipo=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil_admin, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil_admin, container, false);
+
+        DNIPERFIL = view.findViewById(R.id.DNIPERFIL);
+        NOMBRESPERFIL = view.findViewById(R.id.NOMBRESPERFIL);
+        APELLIDOSPERFIL = view.findViewById(R.id.APELLIDOSPERFIL);
+        CORREOPERFIL = view.findViewById(R.id.CORREOPERFIL);
+        PASSWORDPERFIL = view.findViewById(R.id.PASSWORDPERFIL);
+        FECHANACIMINETOPERFIL = view.findViewById(R.id.FECHANACIMINETOPERFIL);
+        AREAPERFIL = view.findViewById(R.id.AREAPERFIL);
+        DESCRIPCIONPERFIL = view.findViewById(R.id.DESCRIPCIONPERFIL);
+
+        llenarDatos();
+
+        return view;
+    }
+
+    public void llenarDatos(){
+        try{
+            if(connection!= null){
+                String query =  "select E.dni, E.nombre, E.apellido, U.correo, U.contrasena, E.fecha_nacimiento, TE.nombre, E.descripcion \n" +
+                        "from Usuario U, Tipos_empleado TE, Empleado E\n" +
+                        "where E.id_usuario = U.id_usuario AND E.id_empleado_tipo = TE.id_empleado_tipo AND U.id_usuario='"+id_usuario+"' AND E.id_empleado_tipo='"+id_empleado_tipo+"'; ";
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(query);
+
+                while(rs.next()){
+                    DNIPERFIL.setText(rs.getString(1));
+                    NOMBRESPERFIL.setText(rs.getString(2));
+                    APELLIDOSPERFIL.setText(rs.getString(3));
+                    CORREOPERFIL.setText(rs.getString(4));
+                    PASSWORDPERFIL.setText(rs.getString(5));
+                    FECHANACIMINETOPERFIL.setText(rs.getString(6));
+                    AREAPERFIL.setText(rs.getString(7));
+                    DESCRIPCIONPERFIL.setText(rs.getString(8));
+                }
+            }
+        }catch (Exception e){
+            System.out.println(e);
+            Log.e("error",e.getMessage());
+        }
     }
 }

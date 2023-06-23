@@ -3,12 +3,14 @@ package com.example.restaurante.Categorias.Plato;
 public class Plato {
     private int id;
     private String nombre;
+    private float precio;
     private int cantidad;
     private String descripcion;
 
-    public Plato(int id, String nombre, int cantidad, String descripcion) {
+    public Plato(int id, String nombre, float precio, int cantidad, String descripcion) {
         this.id = id;
         this.nombre = nombre;
+        this.precio = precio;
         this.cantidad = cantidad;
         this.descripcion = descripcion;
     }
@@ -30,6 +32,14 @@ public class Plato {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
     public int getCantidad() {

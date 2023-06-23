@@ -1,4 +1,4 @@
-package com.example.restaurante.FragmentosCliente;
+package com.example.restaurante.FragmentosEmpleado;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -11,7 +11,7 @@ public class Conexion {
     @SuppressLint("NewApi")
     public static Connection connectionclass(){
         Connection con = null;
-        String ip = "192.168.1.13", port="1433", username="Cesar",password="123456",databasename="RestauranteAndroid";
+        String ip = "192.168.1.6", port="1433", username="Cesar",password="123456",databasename="RestauranteUTP";
         StrictMode.ThreadPolicy tp = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(tp);
         try{

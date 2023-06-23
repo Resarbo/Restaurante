@@ -41,7 +41,7 @@
 
             <EditText
                 android:id="@+id/Correo"
-                android:hint="@string/Correo"
+                android:hint="@string/CorreoAdmin"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -54,7 +54,7 @@
 
             <EditText
                 android:id="@+id/Password"
-                android:hint="@string/Password"
+                android:hint="@string/PasswordAdmin"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

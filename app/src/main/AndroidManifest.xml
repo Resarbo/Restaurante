@@ -14,9 +14,6 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".Categorias.Cocina.DetallesCocina"
-            android:exported="false" />
-        <activity
             android:name=".Categorias.Plato.AgregarPlatos"
             android:exported="false" />
         <activity

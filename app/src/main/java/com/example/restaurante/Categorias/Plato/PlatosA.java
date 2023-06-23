@@ -49,10 +49,11 @@ public class PlatosA extends AppCompatActivity {
             Statement st = Conexion.connectionclass().createStatement();
             ResultSet rs = st.executeQuery("select * from Platos");
             while(rs.next()){
-                platos.add(new Plato(rs.getInt("id"),rs.getString("nombre"),rs.getInt("cantidad"),rs.getString("descripcion")));
+                platos.add(new Plato(rs.getInt("id_plato"),rs.getString("nombre"),rs.getFloat("precio"),rs.getInt("cantidad"),rs.getString("descripcion")));
             }
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            System.out.println(e);
         }
         return platos;
     }

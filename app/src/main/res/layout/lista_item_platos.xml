@@ -45,6 +45,12 @@
                     android:text="TextView" />
 
                 <TextView
+                    android:id="@+id/PrecioTXTPlato"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
+                <TextView
                     android:id="@+id/CantidadTXTPlato"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
