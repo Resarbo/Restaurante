@@ -36,6 +36,5 @@ public class Carga extends AppCompatActivity {
         }, DURACION);
 
         app_name.setTypeface(tf);
-        desarrollador.setTypeface(tf);
     }
 }
