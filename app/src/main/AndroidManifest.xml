@@ -14,28 +14,43 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".PedidosA"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.AgregarEmpleado"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.Meseros.AgregarMesero"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.Cajeros.AgregarCajero"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.Cajeros.CajaA"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.Meseros.MesasA"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.Cocina.CocinaA"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Empleados.EmpleadosCategorias"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Usuarios.UsuarioA"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Usuarios.AgregarUsuario"
+            android:exported="false" />
+        <activity
             android:name=".Categorias.Plato.AgregarPlatos"
             android:exported="false" />
         <activity
-            android:name=".Categorias.Mesero.AgregarMesero"
-            android:exported="false" />
-        <activity
-            android:name=".Categorias.Caja.AgregarCajero"
-            android:exported="false" />
-        <activity
-            android:name=".Categorias.Cocina.AgregarCocina"
-            android:exported="false" />
-        <activity
-            android:name=".Categorias.Caja.CajaA"
-            android:exported="false" />
-        <activity
-            android:name=".Categorias.Mesero.MeseroA"
+            android:name=".Categorias.Empleados.Cocina.AgregarCocina"
             android:exported="false" />
         <activity
             android:name=".Categorias.Plato.PlatosA"
-            android:exported="false" />
-        <activity
-            android:name=".Categorias.Cocina.CocinaA"
             android:exported="false" />
         <activity
             android:name=".MainActivityAdministrador"
@@ -45,7 +60,7 @@
             android:name=".InicioSesion"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityEmpleado"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -30,7 +30,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/NombreTXTCocinero"
+                    android:id="@+id/CorreoTXTAdmin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -39,45 +39,17 @@
                     android:textSize="26sp" />
 
                 <TextView
-                    android:id="@+id/ApellidoTXTCocinero"
+                    android:id="@+id/idTXTAdmin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/DniTXTCocinero"
+                    android:id="@+id/tipoUsuarioTXTAdmin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/EdadTXTCocinero"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/DescripcionTXTCocinero"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnAcceder"
-                    android:layout_width="match_parent"
-                    android:layout_height="117dp"
-                    android:gravity="center"
-                    android:text="Acceder" />
-            </LinearLayout>
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

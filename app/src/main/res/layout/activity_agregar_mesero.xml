@@ -1,112 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    tools:context=".Categorias.Mesero.AgregarMesero">
+    tools:context=".Categorias.Empleados.Meseros.AgregarMesero">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="15dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:text="@string/DniTXTMesero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/DniMesero"
-                android:hint="@string/DniMesero"
-                android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:text="@string/NombreTXTMesero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/NombreMesero"
-                android:hint="@string/NombreMesero"
-                android:inputType="textCapWords|textAutoCorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:text="@string/ApellidoTXTMesero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"/>
-
-            <EditText
-                android:id="@+id/ApellidoMesero"
-                android:hint="@string/ApellidoMesero"
-                android:inputType="textCapWords|textAutoCorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:text="@string/EdadTXTMesero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"/>
-
-            <EditText
-                android:id="@+id/EdadMesero"
-                android:hint="@string/EdadMesero"
-                android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:text="@string/DescripcionTXTMesero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"/>
-
-            <EditText
-                android:id="@+id/DescripcionMesero"
-                android:hint="@string/DescripcionMesero"
-                android:inputType="textCapWords|textAutoCorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            android:text="@string/RegistroTXTMeseros"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ImagenAgregarMesero"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/imagen_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:src="@drawable/admin2"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Nombres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Nombres"
+                android:inputType="textCapWords|textAutoCorrect"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Apellidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Apellidos"
+                android:inputType="textCapWords|textAutoCorrect"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/FechaNacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/FechaNacimiento"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Dni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Dni"
+                android:inputType="number"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/Descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Descripcion"
+                android:inputType="textCapWords|textAutoCorrect"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/usuarioEmpleado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:layout_weight="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ImagenAgregarCocina"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/imagen_icon"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/AgregarMesero"
-            android:text="@string/AgregarMesero"
-            android:background="@drawable/btn_personalizado"
-            android:textColor="#fff"
-            android:layout_marginTop="10dp"
+            android:id="@+id/Registrar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content"
+            android:text="@string/Registrar"
+            android:background="#58ACFA"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

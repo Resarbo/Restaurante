@@ -1,18 +1,21 @@
-package com.example.restaurante.FragmentosAdmin;
+package com.example.restaurante.Categorias.Empleados;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.restaurante.Categorias.Empleados.Cajeros.CajaA;
+import com.example.restaurante.Categorias.Empleados.Cocina.AgregarCocina;
+import com.example.restaurante.Categorias.Empleados.Cocina.CocinaA;
+import com.example.restaurante.Categorias.Empleados.Meseros.MesasA;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
@@ -22,7 +25,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class RegistroPersonal extends Fragment {
+public class AgregarEmpleado extends AppCompatActivity {
+
     Connection connection = Conexion.connectionclass();
 
     TextView Nombres,Apellidos,FechaNacimiento,Dni,Descripcion;
@@ -32,30 +36,34 @@ public class RegistroPersonal extends Fragment {
     int tipoEmp, tipoUser;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_registro_personal, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agregar_empleado);
 
-        Nombres = view.findViewById(R.id.Nombres);
-        Apellidos = view.findViewById(R.id.Apellidos);
-        FechaNacimiento = view.findViewById(R.id.FechaNacimiento);
-        Dni = view.findViewById(R.id.Dni);
-        Descripcion = view.findViewById(R.id.Descripcion);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Agregar");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
 
-        tipoEmpleado = view.findViewById(R.id.tipoEmpleado);
-        usuarioEmpleado = view.findViewById(R.id.usuarioEmpleado);
+        Nombres = findViewById(R.id.Nombres);
+        Apellidos = findViewById(R.id.Apellidos);
+        FechaNacimiento = findViewById(R.id.FechaNacimiento);
+        Dni = findViewById(R.id.Dni);
+        Descripcion = findViewById(R.id.Descripcion);
+
+        tipoEmpleado = findViewById(R.id.tipoEmpleado);
+        usuarioEmpleado = findViewById(R.id.usuarioEmpleado);
 
         llenarSpinerEmpleado();
         llenarSpinerUsuario();
 
-        Registrar = view.findViewById(R.id.Registrar);
+        Registrar = findViewById(R.id.Registrar);
         Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegistrarAdmin();
+                RegistrarEmpleado();
             }
         });
-        return view;
     }
 
     public void llenarSpinerEmpleado(){
@@ -68,7 +76,7 @@ public class RegistroPersonal extends Fragment {
                 String name = rs.getString("nombre");
                 data.add(name);
             }
-            ArrayAdapter arrayAdapter = new ArrayAdapter<>(getActivity(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
+            ArrayAdapter arrayAdapter = new ArrayAdapter<>(AgregarEmpleado.this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
             tipoEmpleado.setAdapter(arrayAdapter);
         }catch (Exception e){
             System.out.println(e);
@@ -85,14 +93,14 @@ public class RegistroPersonal extends Fragment {
                 String name = rs.getString("correo");
                 data.add(name);
             }
-            ArrayAdapter arrayAdapter = new ArrayAdapter<>(getActivity(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
+            ArrayAdapter arrayAdapter = new ArrayAdapter<>(AgregarEmpleado.this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
             usuarioEmpleado.setAdapter(arrayAdapter);
         }catch (Exception e){
             System.out.println(e);
         }
     }
 
-    public void RegistrarAdmin() {
+    public void RegistrarEmpleado() {
         Connection connection = Conexion.connectionclass();
         try{
             String queryEmp = "select id_empleado_tipo from Tipos_empleado where nombre = '"+ tipoEmpleado.getSelectedItem().toString() +"'";
@@ -118,11 +126,30 @@ public class RegistroPersonal extends Fragment {
                         + Dni.getText().toString() + "')";
                 Statement st = connection.createStatement();
                 boolean rs = st.execute(query);
-                Toast.makeText(getActivity(),"PERSONAL REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AgregarEmpleado.this,"EMPLEADO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+
+                switch (tipoEmp){
+                    case 1 :
+                        startActivity(new Intent(AgregarEmpleado.this, CocinaA.class));
+                        break;
+                    case 2 :
+                        startActivity(new Intent(AgregarEmpleado.this, CajaA.class));
+                        break;
+                    case 3 :
+                        startActivity(new Intent(AgregarEmpleado.this, MesasA.class));
+                        break;
+                }
+                finish();
             }
         }catch (Exception e){
-            Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(AgregarEmpleado.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);
         }
-     }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }

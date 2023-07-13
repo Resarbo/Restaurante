@@ -1,4 +1,4 @@
-package com.example.restaurante.Categorias.Caja;
+package com.example.restaurante.Categorias.Empleados.Meseros;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,7 +13,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.restaurante.Categorias.Cocina.RecyclerViewAdaptadorCocina;
+import com.example.restaurante.Categorias.Empleados.Cajeros.AgregarCajero;
+import com.example.restaurante.Categorias.Empleados.Cajeros.CajaA;
+import com.example.restaurante.Categorias.Empleados.Empleado;
+import com.example.restaurante.Categorias.Empleados.RecyclerViewAdaptadorEmpleado;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
@@ -22,26 +25,26 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CajaA extends AppCompatActivity {
+public class MesasA extends AppCompatActivity {
 
-    private RecyclerView recyclerViewCajero;
-    private RecyclerViewAdaptadorCajero recyclerViewAdaptador;
+    private RecyclerView recyclerViewMesas;
+    private RecyclerViewAdaptadorEmpleado recyclerViewAdaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_caja);
+        setContentView(R.layout.activity_mesas);
 
         ActionBar actionBar= getSupportActionBar();
-        actionBar.setTitle("Caja");
+        actionBar.setTitle("Meseros");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        recyclerViewCajero = (RecyclerView) findViewById(R.id.recyclerViewCajero);
-        recyclerViewCajero.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewMesas = (RecyclerView) findViewById(R.id.recyclerViewMesas);
+        recyclerViewMesas.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerViewAdaptador = new RecyclerViewAdaptadorCajero(obtenerCajeros());
-        recyclerViewCajero.setAdapter(recyclerViewAdaptador);
+        recyclerViewAdaptador = new RecyclerViewAdaptadorEmpleado(obtenerMeseros());
+        recyclerViewMesas.setAdapter(recyclerViewAdaptador);
     }
 
     @Override
@@ -62,25 +65,29 @@ public class CajaA extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.Agregar:
                 Toast.makeText(this, "Agregar", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CajaA.this, AgregarCajero.class));
+                startActivity(new Intent(MesasA.this, AgregarMesero.class));
                 finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public List<Cajero> obtenerCajeros(){
-        List<Cajero> cajeros = new ArrayList<>();
+    public List<Empleado> obtenerMeseros(){
+        List<Empleado> cocineros = new ArrayList<>();
         try{
             Statement st = Conexion.connectionclass().createStatement();
-            ResultSet rs = st.executeQuery("select * from Cajeros");
+            ResultSet rs = st.executeQuery("select e.nombre, e.apellido, e.dni, e.descripcion, e.fecha_nacimiento \n" +
+                    "from Empleado e, Tipos_empleado t \n" +
+                    "where e.id_empleado_tipo = t.id_empleado_tipo and e.id_empleado_tipo='3'");
             while(rs.next()){
-                cajeros.add(new Cajero(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellido")
-                        ,rs.getString("edad"),rs.getString("descripcion")));
+                cocineros.add(new Empleado(rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("dni"),
+                        rs.getString("descripcion")));
             }
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        return cajeros;
+        return cocineros;
     }
 }

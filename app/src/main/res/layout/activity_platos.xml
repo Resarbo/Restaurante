@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".Categorias.Cocina.CocinaA">
+    tools:context=".Categorias.Plato.PlatosA">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPlatos"

@@ -30,7 +30,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/NombreTXTCajero"
+                    android:id="@+id/NombreTXTEmpleado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -39,43 +39,23 @@
                     android:textSize="26sp" />
 
                 <TextView
-                    android:id="@+id/ApellidoTXTCajero"
+                    android:id="@+id/ApellidoTXTEmpleado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/DniTXTCajero"
+                    android:id="@+id/DniTXTEmpleado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/EdadTXTCajero"
+                    android:id="@+id/DescripcionTXTEmpleado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
 
-                <TextView
-                    android:id="@+id/DescripcionTXTCajero"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnAccederCajero"
-                    android:layout_width="match_parent"
-                    android:layout_height="117dp"
-                    android:gravity="center"
-                    android:text="Acceder" />
             </LinearLayout>
 
         </LinearLayout>

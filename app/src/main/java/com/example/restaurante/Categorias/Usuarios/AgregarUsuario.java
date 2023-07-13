@@ -1,18 +1,19 @@
-package com.example.restaurante.FragmentosAdmin;
+package com.example.restaurante.Categorias.Usuarios;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.restaurante.Categorias.Usuarios.Usuario_tipo;
+import com.example.restaurante.Categorias.Empleados.Cocina.AgregarCocina;
+import com.example.restaurante.Categorias.Empleados.Cocina.CocinaA;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
@@ -21,9 +22,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
-public class RegistroAdmin extends Fragment {
+public class AgregarUsuario extends AppCompatActivity {
 
     Connection connection = Conexion.connectionclass();
 
@@ -33,30 +33,30 @@ public class RegistroAdmin extends Fragment {
 
     int tipoUser;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_registro_admin, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agregar_usuario);
 
-        CorreoAdmin = view.findViewById(R.id.CorreoAdmin);
-        PasswordAdmin = view.findViewById(R.id.PasswordAdmin);
-        tipoAdmin = view.findViewById(R.id.tipoAdmin);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Agregar");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
+        CorreoAdmin = findViewById(R.id.CorreoAdmin);
+        PasswordAdmin = findViewById(R.id.PasswordAdmin);
+        tipoAdmin = findViewById(R.id.tipoAdmin);
 
         llenarSpiner();
 
-        RegistrarAdmin = view.findViewById(R.id.RegistrarAdmin);
+        RegistrarAdmin = findViewById(R.id.RegistrarAdmin);
         RegistrarAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RegistrarAdmin();
             }
         });
-        return view;
-
     }
-
 
     public void llenarSpiner(){
         try{
@@ -68,7 +68,7 @@ public class RegistroAdmin extends Fragment {
                 String name = rs.getString("nombre");
                 data.add(name);
             }
-            ArrayAdapter arrayAdapter = new ArrayAdapter<>(getActivity(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
+            ArrayAdapter arrayAdapter = new ArrayAdapter<>(AgregarUsuario.this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
             tipoAdmin.setAdapter(arrayAdapter);
         }catch (Exception e){
             System.out.println(e);
@@ -89,11 +89,20 @@ public class RegistroAdmin extends Fragment {
                         + PasswordAdmin.getText().toString() + "')";
                 Statement st = connection.createStatement();
                 boolean rs = st.execute(query);
-                Toast.makeText(getActivity(),"ADMIN REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AgregarUsuario.this,"ADMIN REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(AgregarUsuario.this, UsuarioA.class));
+                finish();
             }
         }catch (Exception e){
-            Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(AgregarUsuario.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);
         }
-     }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }
