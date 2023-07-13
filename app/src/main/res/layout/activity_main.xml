@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="#fff"
-    tools:context=".MainActivity"
+    tools:context=".MainActivityEmpleado"
     tools:openDrawer="start">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -37,7 +37,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/encabezado"
-        app:menu="@menu/menu_cliente"
+        app:menu="@menu/menu_empleado"
         android:background="#fff"
         app:itemTextColor="#000"/>
 

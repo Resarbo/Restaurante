@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!--Menu Admin-->
+    <!--Menu Lateral Admin-->
     <string name="InicioAdmin">Inicio</string>
     <string name="PerfilAdmin">Perfil</string>
     <string name="ResgistrarAdmin">Registrar Admin</string>
@@ -13,13 +13,31 @@
     <string name="Cartilla">Cartilla</string>
     <string name="Salir">Salir</string>
 
+    <!--Menu Lateral Empleado-->
+    <string name="InicioEmpleado">Inicio</string>
+    <string name="PerfilEmpleado">Mi perfil</string>
+    <string name="PedidosEmpleado">Pedidos</string>
+    <string name="SalirEmpleado">Salir</string>
+
+    <!--Menu principal-->
+    <string name="Eligeunacategoriatxt">Elige una categoria</string>
+    <string name="Empleados">EMPLEADOS</string>
+    <string name="Pedidos">PEDIDOS</string>
+    <string name="Platos">PLATOS</string>
+    <string name="Usuarios">USUARIOS</string>
+
+    <!--Actividad Empleados-->
+    <string name="Cocina">COCINA</string>
+    <string name="Caja">CAJA</string>
+    <string name="Mesas">MESEROS</string>
+
     <!--Login de administradores-->
     <string name="LoginTXT">Login de administradores</string>
     <string name="Ingresar">Ingresar</string>
     <string name="Acceder">Acceder</string>
 
-    <!--Registro de Admin-->
-    <string name="RegistroAdminTXT">Registro de Admin</string>
+    <!--Registro de Usuarios-->
+    <string name="RegistroAdminTXT">Registro de Usuarios</string>
     <string name="CorreoAdmin">Correo electronico</string>
     <string name="PasswordAdmin">Contraseña</string>
     <string name="RegistrarAdmin">Registrar</string>
@@ -33,12 +51,14 @@
     <string name="FechaNacimiento">Fecha de Nacimiento</string>
     <string name="Registrar">Registrar</string>
 
-    <!--Categorias-->
-    <string name="Eligeunacategoriatxt">Elige una categoria</string>
-    <string name="Cocina">COCINA</string>
-    <string name="Caja">CAJA</string>
-    <string name="Mesas">MESEROS</string>
-    <string name="Platos">PLATOS</string>
+    <!--Registro de cocineros-->
+    <string name="RegistroTXTCocina">Registrar Cocinero</string>
+
+    <!--Registro de meseros-->
+    <string name="RegistroTXTMeseros">Registrar Meseros</string>
+
+    <!--Registro de cajeros-->
+    <string name="RegistroTXTCajeros">Registrar Cajeros</string>
 
     <!--Perfil-->
     <string name="PERFILADMINISTRADORTXT">Mi perfil</string>

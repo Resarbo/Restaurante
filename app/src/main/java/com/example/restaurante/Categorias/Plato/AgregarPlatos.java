@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.restaurante.Categorias.Mesero.AgregarMesero;
-import com.example.restaurante.Categorias.Mesero.MeseroA;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 

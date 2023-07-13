@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -29,9 +30,8 @@ public class RegistrarPedido extends Fragment {
     Button RegistrarPedido;
     Spinner tipoPlato;
 
-    int idplato, cantidad=1;
+    int idplato, cantidad,idempleado=7, idpedido;
     float precioU, precioT;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,13 +46,24 @@ public class RegistrarPedido extends Fragment {
 
         llenarSpiner();
 
-        llenarPrecios(tipoPlato.getSelectedItem().toString());
+        tipoPlato.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                llenarPrecios(tipoPlato.getSelectedItem().toString());
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
         RegistrarPedido = view.findViewById(R.id.RegistrarPedido);
         RegistrarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegistrarPedido();
+                registrarPedido();
             }
         });
         return view;
@@ -99,17 +110,39 @@ public class RegistrarPedido extends Fragment {
         }
     }
 
-    public void RegistrarPedido() {
-        try{
-            /*if(connection!= null){
-                String query =  "Insert into Usuario values ('"
-                        + tipoUser + "','"
-                        + CorreoAdmin.getText().toString() + "','"
-                        + PasswordAdmin.getText().toString() + "')";
-                Statement st = connection.createStatement();
-                boolean rs = st.execute(query);
-                Toast.makeText(getActivity(),"ADMIN REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
-            }*/
+    public void registrarPedido() {
+        Connection connection = Conexion.connectionclass();
+        try {
+            String queryPlato = "select id_plato from Platos where nombre = '" + tipoPlato.getSelectedItem().toString() + "'";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(queryPlato);
+            rs.next();
+            idplato = rs.getInt(1);
+
+            if (connection != null) {
+                String queryp = "Insert into Pedido values('"
+                        + idempleado + "','"
+                        + PrecioTotalPedido.getText().toString() + "')";
+                Statement st1 = connection.createStatement();
+                boolean rs1 = st1.execute(queryp);
+            }
+
+            String queryIdPedido = "select top 1 * from Pedido order by id_pedido desc";
+            Statement stp = connection.createStatement();
+            ResultSet rsp = stp.executeQuery(queryIdPedido);
+            rsp.next();
+            idpedido = rsp.getInt(1);
+
+            if (connection != null) {
+                String querypd = "Insert into Pedido_detalle values ('"
+                        + idpedido + "','"
+                        + idplato + "','"
+                        + PrecioUnitarioPedido.getText().toString()  + "','"
+                        + CantidadPedido.getText().toString() + "')";
+                Statement st2 = connection.createStatement();
+                boolean rs2 = st2.execute(querypd);
+                Toast.makeText(getActivity(),"PEDIDO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+            }
         }catch (Exception e){
             Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);

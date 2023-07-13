@@ -1,4 +1,4 @@
-package com.example.restaurante.Categorias.Mesero;
+package com.example.restaurante.Categorias.Usuarios;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -21,41 +21,41 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeseroA extends AppCompatActivity {
+public class UsuarioA extends AppCompatActivity {
 
-    private RecyclerView recyclerViewMesero;
-    private RecyclerViewAdaptadorMesero recyclerViewAdaptador;
+    private RecyclerView recyclerViewAdministrador;
+    private RecyclerViewAdaptadorUsuarios recyclerViewAdaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.example.restaurante.R.layout.activity_mesas);
+        setContentView(R.layout.activity_usuario);
 
         ActionBar actionBar= getSupportActionBar();
-        actionBar.setTitle("Mesas");
+        actionBar.setTitle("Usuarios");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        recyclerViewMesero = (RecyclerView) findViewById(R.id.recyclerViewMesero);
-        recyclerViewMesero.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewAdministrador = (RecyclerView) findViewById(R.id.recyclerViewAdministradores);
+        recyclerViewAdministrador.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerViewAdaptador = new RecyclerViewAdaptadorMesero(obtenerMeseros());
-        recyclerViewMesero.setAdapter(recyclerViewAdaptador);
+        recyclerViewAdaptador = new RecyclerViewAdaptadorUsuarios(obtenerAdministradores());
+        recyclerViewAdministrador.setAdapter(recyclerViewAdaptador);
     }
 
-    private List<Mesero> obtenerMeseros() {
-        List<Mesero> meseros = new ArrayList<>();
+    private List<Usuario> obtenerAdministradores() {
+        List<Usuario> administradores = new ArrayList<>();
         try{
             Statement st = Conexion.connectionclass().createStatement();
-            ResultSet rs = st.executeQuery("select * from Meseros");
+            ResultSet rs = st.executeQuery("select u.id_usuario,u.id_usuario_tipo,u.correo,u.contrasena,t.nombre from Usuario u, Tipos_usuario t where u.id_usuario_tipo = t.id_usuario_tipo");
             while(rs.next()){
-                meseros.add(new Mesero(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellido")
-                        ,rs.getString("edad"),rs.getString("descripcion")));
+                administradores.add(new Usuario(rs.getInt("id_usuario"), rs.getInt("id_usuario_tipo"), rs.getString("correo"), rs.getString("contrasena"), rs.getString("nombre")));
             }
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            System.out.println(e);
         }
-        return meseros;
+        return administradores;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class MeseroA extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.Agregar:
                 Toast.makeText(this, "Agregar", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MeseroA.this, AgregarMesero.class));
+                startActivity(new Intent(UsuarioA.this, AgregarUsuario.class));
                 finish();
                 break;
         }

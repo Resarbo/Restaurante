@@ -1,0 +1,119 @@
+package com.example.restaurante.Categorias.Empleados.Meseros;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.restaurante.Categorias.Empleados.Cocina.AgregarCocina;
+import com.example.restaurante.Categorias.Empleados.Cocina.CocinaA;
+import com.example.restaurante.Conexion;
+import com.example.restaurante.R;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class AgregarMesero extends AppCompatActivity {
+    Connection connection = Conexion.connectionclass();
+
+    TextView Nombres,Apellidos,FechaNacimiento,Dni,Descripcion;
+    Spinner usuarioEmpleado;
+    Button Registrar;
+
+    int tipoEmp = 3, tipoUser;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agregar_mesero);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Agregar");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
+        Nombres = findViewById(R.id.Nombres);
+        Apellidos = findViewById(R.id.Apellidos);
+        FechaNacimiento = findViewById(R.id.FechaNacimiento);
+        Dni = findViewById(R.id.Dni);
+        Descripcion = findViewById(R.id.Descripcion);
+
+        usuarioEmpleado = findViewById(R.id.usuarioEmpleado);
+
+        llenarSpinerUsuario();
+
+        Registrar = findViewById(R.id.Registrar);
+
+        Registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SubirMesero();
+            }
+        });
+    }
+
+    public void llenarSpinerUsuario(){
+        try{
+            String query = "select * from Usuario";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<String> data = new ArrayList<>();
+            while(rs.next()){
+                String name = rs.getString("correo");
+                data.add(name);
+            }
+            ArrayAdapter arrayAdapter = new ArrayAdapter<>(AgregarMesero.this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
+            usuarioEmpleado.setAdapter(arrayAdapter);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    private void SubirMesero() {
+        Connection connection = Conexion.connectionclass();
+        try{
+            String queryUser = "select id_usuario from Usuario where correo = '"+ usuarioEmpleado.getSelectedItem().toString() +"'";
+            Statement st2 = connection.createStatement();
+            ResultSet rs2 = st2.executeQuery(queryUser);
+            rs2.next();
+            tipoUser = rs2.getInt(1);
+
+            if(connection!= null){
+                String query =  "Insert into Empleado values ('"
+                        + tipoEmp + "','"
+                        + tipoUser + "','"
+                        + Nombres.getText().toString() + "','"
+                        + Apellidos.getText().toString() + "','"
+                        + FechaNacimiento.getText().toString() + "','"
+                        + Descripcion.getText().toString() + "','"
+                        + Dni.getText().toString() + "')";
+                Statement st = connection.createStatement();
+                boolean rs = st.execute(query);
+                Toast.makeText(AgregarMesero.this,"PERSONAL REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(AgregarMesero.this, MesasA.class));
+                finish();
+            }
+        }catch (Exception e){
+            Toast.makeText(AgregarMesero.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            System.out.println(e);
+        }
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+}

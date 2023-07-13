@@ -12,10 +12,10 @@ import android.view.MenuItem;
 
 import com.example.restaurante.FragmentosEmpleado.AcercaDeCliente;
 import com.example.restaurante.FragmentosEmpleado.CompartirCliente;
-import com.example.restaurante.FragmentosEmpleado.InicioCliente;
+import com.example.restaurante.FragmentosEmpleado.InicioEmpleado;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivityEmpleado extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
 
@@ -42,23 +42,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //fragmento defecto
         if (savedInstanceState== null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new InicioCliente()).commit();
-            navigationView.setCheckedItem(R.id.InicioCliente);
+                    new InicioEmpleado()).commit();
+            navigationView.setCheckedItem(R.id.InicioEmpleado);
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.InicioCliente:
+            case R.id.InicioEmpleado:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new InicioCliente()).commit();
+                        new InicioEmpleado()).commit();
                 break;
-            case R.id.AcercaDe:
+            case R.id.PerfilEmpleado:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AcercaDeCliente()).commit();
                 break;
-            case R.id.Compartir:
+            case R.id.PedidosEmpleado:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AcercaDeCliente()).commit();
+                break;
+            case R.id.SalirEmpleado:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new CompartirCliente()).commit();
                 break;

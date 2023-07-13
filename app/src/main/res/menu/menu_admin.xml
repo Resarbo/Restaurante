@@ -16,29 +16,19 @@
             android:icon="@drawable/dos_icon"/>
 
         <item
-            android:id="@+id/ResgistrarAdmin"
-            android:title="@string/ResgistrarAdmin"
-            android:icon="@drawable/tres_icon"/>
-
-        <item
-            android:id="@+id/ResgistrarPersonal"
-            android:title="@string/ResgistrarPersonal"
-            android:icon="@drawable/cuatro_icon"/>
-
-        <item
             android:id="@+id/ResgistrarPedido"
             android:title="@string/ResgistrarPedido"
-            android:icon="@drawable/cinco_icon"/>
+            android:icon="@drawable/tres_icon"/>
 
         <item
             android:id="@+id/ListarAdmin"
             android:title="@string/Cartilla"
-            android:icon="@drawable/seis_icon"/>
+            android:icon="@drawable/cuatro_icon"/>
 
         <item
             android:id="@+id/Salir"
             android:title="@string/Salir"
-            android:icon="@drawable/siete_icon"/>
+            android:icon="@drawable/cinco_icon"/>
     </group>
 
 </menu>

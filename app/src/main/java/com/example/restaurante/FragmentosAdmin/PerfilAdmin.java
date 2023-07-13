@@ -21,7 +21,7 @@ public class PerfilAdmin extends Fragment {
     Connection connection = Conexion.connectionclass();
     TextView DNIPERFIL,NOMBRESPERFIL,APELLIDOSPERFIL,CORREOPERFIL,PASSWORDPERFIL,FECHANACIMINETOPERFIL,AREAPERFIL,DESCRIPCIONPERFIL;
 
-    int id_usuario=8, id_empleado_tipo=1;
+    int id_usuario=5, id_empleado_tipo=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
