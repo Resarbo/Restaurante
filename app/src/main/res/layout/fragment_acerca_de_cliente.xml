@@ -18,7 +18,12 @@
             android:id="@+id/Acceder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Acceder"/>
+            android:background="@color/ellipse_4_color"
+            android:alpha="0.8"
+            android:text="@string/Acceder"
+            android:textColor="@color/sign_up_color"
+            android:fontFamily="arial"
+            android:textStyle="bold"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>

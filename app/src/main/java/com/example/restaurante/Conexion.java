@@ -11,16 +11,16 @@ public class Conexion {
     @SuppressLint("NewApi")
     public static Connection connectionclass(){
         Connection con = null;
-        String ip = "192.168.253.1", port="1433", username="Cesar",password="123456",databasename="RestauranteUTP";
         StrictMode.ThreadPolicy tp = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(tp);
         try{
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            String connectionUrl = "jdbc:jtds:sqlserver://" + ip + ":" + port + ";databasename="
-                    + databasename + ";User=" + username + ";password=" + password + ";";
-            con = DriverManager.getConnection(connectionUrl);
+            Class.forName("com.mysql.jdbc.Driver");
+            String connectionUrl = "jdbc:mysql://db4free.net:3306/dbpruebares12345?characterEncoding=latin1&useSSL=false";
+            con = DriverManager.getConnection(connectionUrl, "userpruebar12345", "Prueba1234");
+            System.out.println(con);
         }catch (Exception e){
             Log.e("ERROR",e.getMessage());
+            System.out.println("Errorsdsad"+e);
         }
         return con;
     }

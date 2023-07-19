@@ -51,11 +51,12 @@ public class AgregarPlatos extends AppCompatActivity {
         Connection connection = Conexion.connectionclass();
         try{
             if(connection!= null){
-                String query =  "Insert into Platos values ('" + NombrePlato.getText().toString() + "','"
+                String query =  "Insert into Platos values (NULL,'" + NombrePlato.getText().toString() + "','"
                         + PrecioPlato.getText().toString() + "','"
                         + CantidadPlato.getText().toString() + "','"
                         + DescripcionPlato.getText().toString() + "')";
                 Statement st = connection.createStatement();
+                int rowsaffected = st.executeUpdate(query);
                 ResultSet rs = st.executeQuery(query);
             }
         }catch (Exception e){
