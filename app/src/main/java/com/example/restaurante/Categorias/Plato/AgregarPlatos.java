@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.restaurante.Conexion;
+import com.example.restaurante.Loading;
 import com.example.restaurante.R;
 import com.mysql.jdbc.PreparedStatement;
 
@@ -23,6 +25,9 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class AgregarPlatos extends AppCompatActivity {
     TextView NombrePlato, CantidadPlato, DescripcionPlato, PrecioPlato;
@@ -31,6 +36,11 @@ public class AgregarPlatos extends AppCompatActivity {
     ImageView imagenAgregarPlato;
 
     private Uri imagenSeleccionadaUri;
+
+    private Loading loading = new Loading(AgregarPlatos.this);
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +53,7 @@ public class AgregarPlatos extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
 
 
+
         NombrePlato = findViewById(R.id.NombrePlato);
         PrecioPlato = findViewById(R.id.PrecioPlato);
         CantidadPlato = findViewById(R.id.CantidadPlato);
@@ -53,9 +64,12 @@ public class AgregarPlatos extends AppCompatActivity {
         imagenAgregarPlato = findViewById(R.id.ImagenAgregarPlato);
 
         AgregarPlato.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                loading.startLoading();
                 SubirPlato();
+
             }
         });
 
@@ -69,23 +83,30 @@ public class AgregarPlatos extends AppCompatActivity {
 
     private void SubirPlato() {
         int id = 0;
+
         Connection connection = Conexion.connectionclass();
         try{
-            InputStream inputStream = getContentResolver().openInputStream(imagenSeleccionadaUri);
-            byte[] imagenBytes = convertInputStreamToByteArray(inputStream);
-            inputStream.close();
+
             if(connection!= null){
-                String query = "INSERT INTO Platos (nombre, precio, cantidad, descripcion, imagen_blob) VALUES (?, ?, ?, ?, ?)";
+                Bitmap bitmapImagen = MediaStore.Images.Media.getBitmap(getContentResolver(), imagenSeleccionadaUri);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmapImagen.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+                byte[] imagenComprimidaBytes = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+
+                String query = "INSERT INTO Platos_intent (id_plato,nombre, precio, cantidad, descripcion, imagen) VALUES (NULL,?, ?, ?, ?, ?)";
                 PreparedStatement statement = (PreparedStatement) connection.prepareStatement(query);
                 statement.setString(1, NombrePlato.getText().toString());
                 statement.setString(2, PrecioPlato.getText().toString());
                 statement.setString(3, CantidadPlato.getText().toString());
                 statement.setString(4, DescripcionPlato.getText().toString());
-                statement.setBytes(5, imagenBytes);
+                statement.setBytes(5, imagenComprimidaBytes);
                 statement.executeUpdate();
+                connection.close();
             }
         }catch (Exception e){
             Log.e("error",e.getMessage());
+            System.out.println("sasadsa");
         }
         startActivity(new Intent(AgregarPlatos.this, PlatosA.class));
         finish();
@@ -112,19 +133,24 @@ public class AgregarPlatos extends AppCompatActivity {
             imagenSeleccionadaUri = data.getData();
 
             if (imagenSeleccionadaUri != null) {
-                imagenAgregarPlato.setImageURI(imagenSeleccionadaUri);
+                try {
+                    // Cargar la imagen seleccionada como un Bitmap
+                    Bitmap bitmapImagen = MediaStore.Images.Media.getBitmap(getContentResolver(), imagenSeleccionadaUri);
+
+                    // Comprimir el Bitmap reduciendo su calidad al 50%
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmapImagen.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+
+                    // Obtener el arreglo de bytes del Bitmap comprimido
+                    byte[] imagenComprimidaBytes = byteArrayOutputStream.toByteArray();
+
+                    // Establecer el Bitmap comprimido en el ImageView
+                    imagenAgregarPlato.setImageBitmap(bitmapImagen);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    private byte[] convertInputStreamToByteArray(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[1024];
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-        buffer.flush();
-        return buffer.toByteArray();
-    }
 }

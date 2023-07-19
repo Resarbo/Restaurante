@@ -1,20 +1,26 @@
 package com.example.restaurante.Categorias.Plato;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurante.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class RecyclerViewAdaptadorPlatos extends RecyclerView.Adapter<RecyclerViewAdaptadorPlatos.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView NombreTXTPlato, PrecioTXTPlato, IdTXTPlato,CantidadTXTPlato,DescripcionTXTPlato;
+        private ImageView image;
 
         public ViewHolder(View view){
             super(view);
@@ -23,6 +29,7 @@ public class RecyclerViewAdaptadorPlatos extends RecyclerView.Adapter<RecyclerVi
             PrecioTXTPlato = (TextView)view.findViewById(R.id.PrecioTXTPlato);
             CantidadTXTPlato = (TextView)view.findViewById(R.id.CantidadTXTPlato);
             DescripcionTXTPlato = (TextView)view.findViewById(R.id.DescripcionTXTPlato);
+            image = view.findViewById(R.id.ImagenverPlato);
         }
     }
 
@@ -46,6 +53,11 @@ public class RecyclerViewAdaptadorPlatos extends RecyclerView.Adapter<RecyclerVi
         holder.PrecioTXTPlato.setText(String.valueOf(cocineroPlato.get(position).getPrecio()));
         holder.IdTXTPlato.setText(String.valueOf(cocineroPlato.get(position).getId()));
         holder.CantidadTXTPlato.setText(String.valueOf(cocineroPlato.get(position).getCantidad()));
+        byte[] imagenBytes = cocineroPlato.get(position).getImagen();
+        Bitmap bitmapImagen = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
+        Bitmap result = Bitmap.createScaledBitmap(bitmapImagen, 200, 200, false);
+        holder.image.setImageBitmap(result);
+
     }
 
     @Override
