@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@color/_bg__sign_in_color"
     tools:context=".FragmentosAdmin.PerfilAdmin">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -17,6 +17,7 @@
             android:text="@string/PERFILADMINISTRADORTXT"
             android:textSize="20sp"
             android:gravity="center"
+            android:textColor="#000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -33,6 +34,7 @@
             android:textSize="20sp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="#000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -45,6 +47,7 @@
             <TextView
                 android:id="@+id/DNIPERFILTXT"
                 android:text="@string/DNIPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -52,6 +55,7 @@
             <TextView
                 android:id="@+id/DNIPERFIL"
                 android:text="@string/DNIPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,6 +71,7 @@
             <TextView
                 android:id="@+id/NOMBRESPERFILTXT"
                 android:text="@string/NOMBRESPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -74,6 +79,7 @@
             <TextView
                 android:id="@+id/NOMBRESPERFIL"
                 android:text="@string/NOMBRESPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,6 +95,7 @@
             <TextView
                 android:id="@+id/APELLIDOSPERFILTXT"
                 android:text="@string/APELLIDOSPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -96,6 +103,7 @@
             <TextView
                 android:id="@+id/APELLIDOSPERFIL"
                 android:text="@string/APELLIDOSPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,6 +119,7 @@
             <TextView
                 android:id="@+id/CORREOPERFILTXT"
                 android:text="@string/CORREOPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -118,6 +127,7 @@
             <TextView
                 android:id="@+id/CORREOPERFIL"
                 android:text="@string/CORREOPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,6 +143,7 @@
             <TextView
                 android:id="@+id/PASSWORDPERFILTXT"
                 android:text="@string/PASSWORDPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -140,6 +151,7 @@
             <TextView
                 android:id="@+id/PASSWORDPERFIL"
                 android:text="@string/PASSWORDPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,6 +167,7 @@
             <TextView
                 android:id="@+id/FECHANACIMINETOPERFILTXT"
                 android:text="@string/FECHANACIMINETOPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -162,6 +175,7 @@
             <TextView
                 android:id="@+id/FECHANACIMINETOPERFIL"
                 android:text="@string/FECHANACIMINETOPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -177,6 +191,7 @@
             <TextView
                 android:id="@+id/AREAPERFILTXT"
                 android:text="@string/AREAPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -184,6 +199,7 @@
             <TextView
                 android:id="@+id/AREAPERFIL"
                 android:text="@string/AREAPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -199,6 +215,7 @@
             <TextView
                 android:id="@+id/DESCRIPCIONPERFILTXT"
                 android:text="@string/DESCRIPCIONPERFILTXT"
+                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
@@ -206,6 +223,7 @@
             <TextView
                 android:id="@+id/DESCRIPCIONPERFIL"
                 android:text="@string/DESCRIPCIONPERFIL"
+                android:textColor="#000"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -221,7 +239,7 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:drawablePadding="15dp"
-            android:background="@drawable/btn_personalizado_dos"
+            android:background="@color/ellipse_4_color"
             android:layout_width="230dp"
             android:layout_height="wrap_content"/>
 
@@ -234,7 +252,7 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:drawablePadding="15dp"
-            android:background="@drawable/btn_personalizado_dos"
+            android:background="@color/ellipse_4_color"
             android:layout_width="230dp"
             android:layout_height="wrap_content"/>
 

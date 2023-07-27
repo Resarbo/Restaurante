@@ -46,7 +46,7 @@
     <string name="RegistroTXT">Registro de Personal</string>
     <string name="Nombres">Nombres completos</string>
     <string name="Apellidos">Apellidos completos</string>
-    <string name="Dni">Dni</string>
+    <string name="Dni">DNI</string>
     <string name="Descripcion">Descripcion</string>
     <string name="FechaNacimiento">Fecha de Nacimiento</string>
     <string name="Registrar">Registrar</string>

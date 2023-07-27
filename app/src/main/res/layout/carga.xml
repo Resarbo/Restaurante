@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8181F7"
+    android:background="@color/ellipse_4_color"
     tools:context=".Carga">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -24,8 +24,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/app_name"
             android:text="@string/app_name"
-            android:textSize="20sp"
-            android:textColor="#E0ECF8"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="10px"
+            android:textColor="#000"
             android:gravity="center"
             android:layout_marginTop="20sp"/>
 
@@ -34,9 +36,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/desarrollador"
             android:text="@string/desarrollador"
-            android:textSize="18sp"
-            android:textColor="#E0ECF8"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000"
             android:gravity="center"
+            android:padding="10px"
             android:layout_marginTop="10dp"/>
 
         <com.airbnb.lottie.LottieAnimationView

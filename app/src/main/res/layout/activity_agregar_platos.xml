@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@color/_bg__sign_in_color"
     tools:context=".Categorias.Plato.AgregarPlatos">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -27,10 +27,14 @@
             <EditText
                 android:id="@+id/NombrePlato"
                 android:hint="@string/NombrePlato"
+                android:paddingStart="5dp"
+                android:background="@drawable/rectangle_2_ek1_shape"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="329dp"
+                android:layout_height="46dp"
                 android:inputType="textCapWords|textAutoCorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                />
 
             <TextView
                 android:text="@string/PrecioTXTPlato"
@@ -41,10 +45,13 @@
             <EditText
                 android:id="@+id/PrecioPlato"
                 android:hint="@string/PrecioPlato"
+                android:paddingStart="5dp"
                 android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:background="@drawable/rectangle_2_ek1_shape"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="329dp"
+                android:layout_height="46dp"/>
 
             <TextView
                 android:text="@string/CantidadTXTPlato"
@@ -55,10 +62,13 @@
             <EditText
                 android:id="@+id/CantidadPlato"
                 android:hint="@string/CantidadPlato"
+                android:paddingStart="5dp"
                 android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:background="@drawable/rectangle_2_ek1_shape"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="329dp"
+                android:layout_height="46dp"/>
 
             <TextView
                 android:text="@string/DescripcionTXTPlato"
@@ -69,10 +79,13 @@
             <EditText
                 android:id="@+id/DescripcionPlato"
                 android:hint="@string/DescripcionPlato"
+                android:paddingStart="5dp"
                 android:inputType="textCapWords|textAutoCorrect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:background="@drawable/rectangle_2_ek1_shape"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="329dp"
+                android:layout_height="46dp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -87,9 +100,11 @@
         <Button
             android:id="@+id/AgregarPlato"
             android:text="@string/AgregarPlato"
-            android:background="@drawable/btn_personalizado"
-            android:textColor="#fff"
-            android:layout_marginTop="10dp"
+            android:background="@color/ellipse_4_color"
+            android:alpha="0.8"
+            android:textColor="@color/sign_up_color"
+            android:fontFamily="arial"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

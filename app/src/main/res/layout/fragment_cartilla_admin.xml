@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/_bg__sign_in_color"
     tools:context=".FragmentosAdmin.CartillaAdmin">
 
     <ImageView
@@ -28,6 +29,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Generar QR"
+        android:background="@color/ellipse_4_color"
+        android:textColor="@color/sign_up_color"
+        android:fontFamily="arial"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
