@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.restaurante.Categorias.Pedidos.PedidosA;
 import com.example.restaurante.Categorias.Usuarios.UsuarioA;
 import com.example.restaurante.Categorias.Empleados.EmpleadosCategorias;
 import com.example.restaurante.Categorias.Plato.PlatosA;
@@ -47,7 +48,7 @@ public class InicioAdmin extends Fragment {
         Pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), PlatosA.class));
+                startActivity(new Intent(getActivity(), PedidosA.class));
             }
         });
 

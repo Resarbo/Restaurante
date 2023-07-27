@@ -41,26 +41,27 @@ public class PlatosA extends AppCompatActivity {
 
         recyclerViewAdaptador = new RecyclerViewAdaptadorPlatos(obtenerPlatos());
         recyclerViewMesero.setAdapter(recyclerViewAdaptador);
+        recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorPlatos.OnClickListener() {
+            @Override
+            public void onClick(int position, Plato model) {
+                startActivity(new Intent(PlatosA.this, PlatoDetalle.class));
+            }
+        });
     }
 
     private List<Plato> obtenerPlatos() {
         List<Plato> platos = new ArrayList<>();
         try{
             Statement st = Conexion.connectionclass().createStatement();
-            ResultSet rs = st.executeQuery("select * from Platos_intent");
+            ResultSet rs = st.executeQuery("select * from Platos");
             while(rs.next()){
                 platos.add(new Plato(rs.getInt("id_plato"),rs.getString("nombre"),rs.getFloat("precio")
                         ,rs.getInt("cantidad"),rs.getString("descripcion"),rs.getBytes("imagen")));
             }
-
-            rs.close();
-            st.close();
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             System.out.println(e);
-
         }
-
         return platos;
     }
 
