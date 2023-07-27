@@ -38,7 +38,8 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/encabezado"
         app:menu="@menu/menu_admin"
-        android:background="@color/_bg__sign_in_color"
-        app:itemTextColor="#000"/>
+        android:background="@color/ellipse_4_color"
+        app:itemTextColor="#fff"
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

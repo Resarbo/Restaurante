@@ -20,7 +20,7 @@
     <string name="SalirEmpleado">Salir</string>
 
     <!--Menu principal-->
-    <string name="Eligeunacategoriatxt">Elige una categoria</string>
+    <string name="Eligeunacategoriatxt">Escoge una de las categorías</string>
     <string name="Empleados">EMPLEADOS</string>
     <string name="Pedidos">PEDIDOS</string>
     <string name="Platos">PLATOS</string>
@@ -62,7 +62,7 @@
 
     <!--Perfil-->
     <string name="PERFILADMINISTRADORTXT">Mi perfil</string>
-    <string name="MIINFORMACIONTXT">Mi informacion</string>
+    <string name="MIINFORMACIONTXT">Mi información</string>
     <string name="DNIPERFILTXT">DNI:</string>
     <string name="DNIPERFIL">--</string>
     <string name="NOMBRESPERFILTXT">Nombres:</string>
