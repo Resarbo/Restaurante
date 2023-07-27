@@ -127,7 +127,7 @@
             android:gravity="center">
 
             <Spinner
-                android:id="@+id/usuarioEmpleado"
+                android:id="@+id/usuarioEmpleadoCocina"
                 android:background="@drawable/rectangle_2_ek1_shape"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
