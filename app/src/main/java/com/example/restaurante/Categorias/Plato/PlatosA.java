@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.restaurante.Conexion;
-import com.example.restaurante.InicioSesion;
 import com.example.restaurante.R;
 
 import java.sql.ResultSet;
@@ -42,6 +41,7 @@ public class PlatosA extends AppCompatActivity {
 
         recyclerViewAdaptador = new RecyclerViewAdaptadorPlatos(obtenerPlatos());
         recyclerViewMesero.setAdapter(recyclerViewAdaptador);
+
         recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorPlatos.OnClickListener() {
             @Override
             public void onClick(int position, Plato model) {
@@ -54,10 +54,10 @@ public class PlatosA extends AppCompatActivity {
         List<Plato> platos = new ArrayList<>();
         try{
             Statement st = Conexion.connectionclass().createStatement();
-            ResultSet rs = st.executeQuery("select * from Platos");
+            ResultSet rs = st.executeQuery("select * from Platos_intent");
             while(rs.next()){
-                platos.add(new Plato(rs.getInt("id_plato"),rs.getString("nombre"),rs.getFloat("precio")
-                        ,rs.getInt("cantidad"),rs.getString("descripcion"),rs.getBytes("imagen")));
+                platos.add(new Plato(rs.getInt("id_plato"),rs.getString("nombre"),rs.getFloat("precio"),
+                        rs.getInt("cantidad"),rs.getString("descripcion"),rs.getBytes("imagen")));
             }
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -84,12 +84,8 @@ public class PlatosA extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.Agregar:
                 Toast.makeText(this, "Agregar", Toast.LENGTH_SHORT).show();
-                if(InicioSesion.id_tipo_empleado==3){
-                    Toast.makeText(this, "No jodas", Toast.LENGTH_SHORT).show();
-                }else{
-                    startActivity(new Intent(PlatosA.this, AgregarPlatos.class));
-                    finish();
-                }
+                startActivity(new Intent(PlatosA.this, AgregarPlatos.class));
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);

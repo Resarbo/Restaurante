@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.restaurante.Conexion;
+import com.example.restaurante.Loading;
 import com.example.restaurante.R;
 
 import java.sql.Connection;
@@ -80,17 +81,13 @@ public class PlatoDetalle extends AppCompatActivity {
     public void llenarDatos(){
         try{
             Statement st = Conexion.connectionclass().createStatement();
-            ResultSet rs = st.executeQuery("select * from Platos");
+            ResultSet rs = st.executeQuery("select * from Platos_intent where id_plato="+idPlatotxt.getText().toString());
             while(rs.next()){
                 nombrePlatotxt.setText(rs.getString("nombre"));
                 precioPlatotxt.setText(String.valueOf(rs.getFloat("precio")));
                 cantidadPlatotxt.setText(String.valueOf(rs.getInt("cantidad")));
                 descripcionPlatotxt.setText(rs.getString("descripcion"));
-                if(rs.getString("estado").equals("0")){
-                    estadoPlatotxt.setText("Activo");
-                } else if (rs.getString("estado").equals("1")) {
-                    estadoPlatotxt.setText("Desactivado");
-                }
+                estadoPlatotxt.setText("Desactivado");
             }
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -107,10 +104,11 @@ public class PlatoDetalle extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 try {
-                    String query =  "delete Platos where id_plato = '"+ idPlatotxt.getText().toString() + "'";
+                    String query =  "delete FROM Platos_intent where id_plato = '"+ idPlatotxt.getText().toString() + "'";
                     Statement st = connection.createStatement();
                     st.executeUpdate(query);
                     startActivity(new Intent(PlatoDetalle.this, PlatosA.class));
+                    Toast.makeText(PlatoDetalle.this, "se ha eliminado con exito", Toast.LENGTH_SHORT).show();
                     finish();
                 }catch (Exception e){
                     Toast.makeText(PlatoDetalle.this, ""+e, Toast.LENGTH_SHORT).show();

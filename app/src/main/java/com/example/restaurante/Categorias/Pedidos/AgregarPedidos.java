@@ -191,7 +191,7 @@ public class AgregarPedidos extends AppCompatActivity {
             idpedido = rsp.getInt(1);
 
             if (connection != null) {
-                String querypd = "Insert into Pedido_detalle values ('"
+                String querypd = "Insert into Pedido_detalle values (Null,'"
                         + idpedido + "','"
                         + idplato + "','"
                         + PrecioUnitarioPedido.getText().toString()  + "','"

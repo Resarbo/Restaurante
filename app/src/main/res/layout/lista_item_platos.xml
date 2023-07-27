@@ -83,7 +83,7 @@
                         android:layout_alignParentRight="true"/>
 
                     <ImageView
-                        android:id="@+id/ImagenverPlato"
+                        android:id="@+id/imagenVerPlato"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginStart="10dp"
