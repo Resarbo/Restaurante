@@ -18,9 +18,9 @@ import java.sql.Statement;
 public class InicioSesion extends AppCompatActivity {
     Connection connection = Conexion.connectionclass();
 
-    public static int id_empleado, id_usuario, id_tipo_empleado;
+    static int id_empleado, id_usuario;
 
-    int resultado=0, id_tipo_usuario;
+    int resultado=0, id_tipo_usuario, id_tipo_empleado;
     TextView Correo,Password;
 
     Button Acceder;
@@ -56,22 +56,18 @@ public class InicioSesion extends AppCompatActivity {
                                 id_usuario = rs1.getInt(2);
                                 if (id_tipo_usuario == 1){
                                     startActivity(new Intent(InicioSesion.this, MainActivityAdministrador.class));
-                                    finish();
                                 } else if (id_tipo_usuario == 2) {
                                     startActivity(new Intent(InicioSesion.this, MainActivityEmpleado.class));
-                                    finish();
                                 }
                                 Toast.makeText(InicioSesion.this, "BIENVENIDO!", Toast.LENGTH_SHORT).show();
 
                                 String queryEmpleado = "select e.id_empleado,e.id_empleado_tipo from Usuario u, Empleado e where e.id_usuario=u.id_usuario and u.id_usuario='"+id_usuario+"'";
                                 Statement st2 = connection.createStatement();
                                 ResultSet rs2 = st.executeQuery(queryUsuario);
-                                while (rs2.next()){
-                                    id_empleado = rs2.getInt("id_empleado");
-                                    id_tipo_empleado = rs2.getInt("id_empleado_tipo");
-                                }
+                                rs2.next();
+                                id_empleado = rs2.getInt(1);
+                                id_tipo_empleado = rs2.getInt(2);
 
-                                Toast.makeText(InicioSesion.this, id_empleado+""+id_tipo_empleado, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

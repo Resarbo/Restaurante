@@ -32,7 +32,7 @@
     <string name="Mesas">MESEROS</string>
 
     <!--Login de administradores-->
-    <string name="LoginTXT">Login de administradores</string>
+    <string name="LoginTXT">Login de usuarios</string>
     <string name="Ingresar">Ingresar</string>
     <string name="Acceder">Acceder</string>
 

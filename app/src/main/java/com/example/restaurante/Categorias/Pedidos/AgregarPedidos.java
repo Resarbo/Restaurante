@@ -32,7 +32,7 @@ public class AgregarPedidos extends AppCompatActivity {
     Button RegistrarPedido;
     Spinner tipoPlato;
 
-    int idplato, cantidad,idempleado= InicioSesion.id_empleado, idpedido,estado;
+    int idplato, cantidad,idempleado= 5, idpedido,estado;
     float precioU, precioT;
 
     @Override

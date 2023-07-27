@@ -17,14 +17,13 @@ import com.example.restaurante.R;
 
 public class InicioEmpleado extends Fragment {
 
-    Button Empleados, Platos, Pedidos;
+    Button Platos, Pedidos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_inicio_empleado, container, false);
 
-        Empleados = view.findViewById(R.id.Empleados);
         Platos = view.findViewById(R.id.Platos);
         Pedidos = view.findViewById(R.id.Pedidos);
 

@@ -23,7 +23,7 @@ public class PerfilEmpleado extends Fragment {
     Connection connection = Conexion.connectionclass();
     TextView DNIPERFIL,NOMBRESPERFIL,APELLIDOSPERFIL,CORREOPERFIL,PASSWORDPERFIL,FECHANACIMINETOPERFIL,AREAPERFIL,DESCRIPCIONPERFIL;
 
-    int id_usuario= InicioSesion.id_usuario, id_empleado_tipo=InicioSesion.id_tipo_empleado;
+    int id_usuario= 9, id_empleado_tipo=3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

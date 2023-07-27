@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.restaurante.Conexion;
+import com.example.restaurante.Conexion2;
 import com.example.restaurante.R;
 
 import java.sql.ResultSet;
@@ -41,26 +42,28 @@ public class PlatosA extends AppCompatActivity {
 
         recyclerViewAdaptador = new RecyclerViewAdaptadorPlatos(obtenerPlatos());
         recyclerViewMesero.setAdapter(recyclerViewAdaptador);
+
+        recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorPlatos.OnClickListener() {
+            @Override
+            public void onClick(int position, Plato model) {
+
+            }
+        });
     }
 
     private List<Plato> obtenerPlatos() {
         List<Plato> platos = new ArrayList<>();
         try{
-            Statement st = Conexion.connectionclass().createStatement();
+            Statement st = Conexion2.connectionclass().createStatement();
             ResultSet rs = st.executeQuery("select * from Platos_intent");
             while(rs.next()){
-                platos.add(new Plato(rs.getInt("id_plato"),rs.getString("nombre"),rs.getFloat("precio")
-                        ,rs.getInt("cantidad"),rs.getString("descripcion"),rs.getBytes("imagen")));
+                platos.add(new Plato(rs.getInt("id_plato"),rs.getString("nombre"),rs.getFloat("precio"),
+                        rs.getInt("cantidad"),rs.getString("descripcion"),rs.getBytes("imagen")));
             }
-
-            rs.close();
-            st.close();
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             System.out.println(e);
-
         }
-
         return platos;
     }
 
