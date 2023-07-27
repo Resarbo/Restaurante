@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +12,19 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
+        <activity
+            android:name=".Categorias.Empleados.EmpleadoDetalle"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Pedidos.PedidoDetalle"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Usuarios.UsuarioDetalle"
+            android:exported="false" />
         <activity
             android:name=".Categorias.Plato.PlatoDetalle"
             android:exported="false" />

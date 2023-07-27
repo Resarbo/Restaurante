@@ -45,6 +45,13 @@ public class PedidosA extends AppCompatActivity {
 
         recyclerViewAdaptador = new RecyclerViewAdaptadorPedidos(obtenerPedidos());
         recyclerViewPedido.setAdapter(recyclerViewAdaptador);
+
+        recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorPedidos.OnClickListener() {
+            @Override
+            public void onClick(int position, Pedido model) {
+
+            }
+        });
     }
 
     private List<Pedido> obtenerPedidos() {

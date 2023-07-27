@@ -45,6 +45,13 @@ public class CajaA extends AppCompatActivity {
 
         recyclerViewAdaptador = new RecyclerViewAdaptadorEmpleado(obtenerCajeros());
         recyclerViewCaja.setAdapter(recyclerViewAdaptador);
+
+        recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorEmpleado.OnClickListener() {
+            @Override
+            public void onClick(int position, Empleado model) {
+
+            }
+        });
     }
 
     @Override
@@ -76,13 +83,14 @@ public class CajaA extends AppCompatActivity {
         List<Empleado> cocineros = new ArrayList<>();
         try{
             Statement st = Conexion.connectionclass().createStatement();
-            ResultSet rs = st.executeQuery("select e.nombre, e.apellido, e.dni, e.descripcion, e.fecha_nacimiento \n" +
+            ResultSet rs = st.executeQuery("select e.nombre, e.id_empleado, e.apellido, e.dni, e.descripcion, e.fecha_nacimiento \n" +
                     "from Empleado e, Tipos_empleado t \n" +
                     "where e.id_empleado_tipo = t.id_empleado_tipo and e.id_empleado_tipo='2'");
             while(rs.next()){
                 cocineros.add(new Empleado(rs.getString("nombre"),
                         rs.getString("apellido"),
                         rs.getString("dni"),
+                        rs.getInt("id_empleado"),
                         rs.getString("descripcion")));
             }
         }catch (Exception e){

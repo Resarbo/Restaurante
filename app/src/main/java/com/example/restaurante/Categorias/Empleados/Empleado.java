@@ -31,6 +31,14 @@ public class Empleado {
     public Empleado() {
     }
 
+    public Empleado(String nombre, String apellido, String dni, int id_empleado, String descripcion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.id_empleado = id_empleado;
+        this.descripcion = descripcion;
+    }
+
     public int getId_empleado() {
         return id_empleado;
     }

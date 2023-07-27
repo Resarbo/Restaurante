@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
+import com.squareup.picasso.Picasso;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class AgregarPlatos extends AppCompatActivity {
     TextView NombrePlato, CantidadPlato, DescripcionPlato, PrecioPlato;
     Button AgregarPlato;
 
-    int estado;
+    int estado, idPlato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +41,33 @@ public class AgregarPlatos extends AppCompatActivity {
 
         AgregarPlato = findViewById(R.id.AgregarPlato);
 
+        Bundle intent = getIntent().getExtras();
+        if(intent != null){
+            //setear
+            NombrePlato.setText(intent.getString("nombre"));
+            PrecioPlato.setText(intent.getString("precio"));
+            CantidadPlato.setText(intent.getString("cantidad"));
+            DescripcionPlato.setText(intent.getString("descripcion"));
+            idPlato = Integer.parseInt(intent.getString("idPlato"));
+
+            actionBar.setTitle("Actualizar");
+            String actualizar = "Actualizar";
+            AgregarPlato.setText(actualizar);
+        }
+
         AgregarPlato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SubirPlato();
+                if (AgregarPlato.getText().equals("AGREGAR")){
+                    SubirPlato();
+                } else if (AgregarPlato.getText().equals("Actualizar")) {
+                    ActualizarPlato();
+                }
             }
         });
     }
 
     private void SubirPlato() {
-        int id = 0;
         Connection connection = Conexion.connectionclass();
         try{
             if(connection!= null){
@@ -59,6 +77,27 @@ public class AgregarPlatos extends AppCompatActivity {
                         + CantidadPlato.getText().toString() + "','"
                         + DescripcionPlato.getText().toString() + "','"
                         + estado + "')";
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(query);
+            }
+        }catch (Exception e){
+            Log.e("error",e.getMessage());
+        }
+        startActivity(new Intent(AgregarPlatos.this, PlatosA.class));
+        finish();
+    }
+
+    public void ActualizarPlato(){
+        Connection connection = Conexion.connectionclass();
+        try{
+            if(connection!= null){
+                String query =  "update Platos set " +
+                        "precio='"+PrecioPlato.getText().toString()+"', " +
+                        "nombre='"+NombrePlato.getText().toString()+"', " +
+                        "cantidad='"+CantidadPlato.getText().toString()+"'," +
+                        "descripcion='"+DescripcionPlato.getText().toString()+"', " +
+                        "estado='"+1+"' where " +
+                        "id_plato = '"+idPlato+"'";
                 Statement st = connection.createStatement();
                 ResultSet rs = st.executeQuery(query);
             }

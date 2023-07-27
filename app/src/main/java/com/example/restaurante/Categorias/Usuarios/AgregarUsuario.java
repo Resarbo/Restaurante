@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.restaurante.Categorias.Empleados.Cocina.AgregarCocina;
 import com.example.restaurante.Categorias.Empleados.Cocina.CocinaA;
+import com.example.restaurante.Categorias.Plato.AgregarPlatos;
+import com.example.restaurante.Categorias.Plato.PlatosA;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
@@ -31,7 +34,7 @@ public class AgregarUsuario extends AppCompatActivity {
     Button RegistrarAdmin;
     Spinner tipoAdmin;
 
-    int tipoUser;
+    int tipoUser, idUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +53,26 @@ public class AgregarUsuario extends AppCompatActivity {
         llenarSpiner();
 
         RegistrarAdmin = findViewById(R.id.RegistrarAdmin);
+
+        Bundle intent = getIntent().getExtras();
+        if(intent != null){
+            //setear
+            idUser = Integer.parseInt(intent.getString("idUsuario"));
+            CorreoAdmin.setText(intent.getString("correo"));
+            PasswordAdmin.setText(intent.getString("contrasena"));
+
+            actionBar.setTitle("Actualizar");
+            String actualizar = "Actualizar";
+            RegistrarAdmin.setText(actualizar);
+        }
         RegistrarAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegistrarAdmin();
+                if (RegistrarAdmin.getText().equals("Registrar")){
+                    RegistrarAdmin();
+                } else if (RegistrarAdmin.getText().equals("Actualizar")) {
+                    ActualizarUsuario();
+                }
             }
         });
     }
@@ -98,6 +117,30 @@ public class AgregarUsuario extends AppCompatActivity {
             Toast.makeText(AgregarUsuario.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);
         }
+    }
+
+    public void ActualizarUsuario(){
+        Connection connection = Conexion.connectionclass();
+        try{
+            if (tipoAdmin.getSelectedItem().toString().equals("admin")){
+                tipoUser = 1;
+            } else if (tipoAdmin.getSelectedItem().toString().equals("empleado")) {
+                tipoUser = 2;
+            }
+            if(connection!= null){
+                String query =  "update Usuario set " +
+                        "correo='"+CorreoAdmin.getText().toString()+"', " +
+                        "contrasena='"+PasswordAdmin.getText().toString()+"', " +
+                        "id_usuario_tipo='"+tipoUser+"' where " +
+                        "id_usuario = '"+idUser+"'";
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(query);
+            }
+        }catch (Exception e){
+            Log.e("error",e.getMessage());
+        }
+        startActivity(new Intent(AgregarUsuario.this, UsuarioA.class));
+        finish();
     }
 
     @Override
