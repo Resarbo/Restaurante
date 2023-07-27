@@ -8,22 +8,27 @@
         <item
             android:id="@+id/InicioAdmin"
             android:title="@string/InicioAdmin"
-            android:icon="@drawable/uno_icon"/>
+            android:icon="@drawable/baseline_home_24"/>
 
         <item
             android:id="@+id/PerfilAdmin"
             android:title="@string/PerfilAdmin"
-            android:icon="@drawable/dos_icon"/>
+            android:icon="@drawable/baseline_supervised_user_circle_24"/>
+
+        <item
+            android:id="@+id/ResgistrarPedido"
+            android:title="@string/ResgistrarPedido"
+            android:icon="@drawable/baseline_app_registration_24"/>
 
         <item
             android:id="@+id/ListarAdmin"
             android:title="@string/Cartilla"
-            android:icon="@drawable/tres_icon"/>
+            android:icon="@drawable/baseline_list_alt_24"/>
 
         <item
             android:id="@+id/Salir"
             android:title="@string/Salir"
-            android:icon="@drawable/cuatro_icon"/>
+            android:icon="@drawable/baseline_exit_to_app_24"/>
     </group>
 
 </menu>

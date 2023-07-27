@@ -18,7 +18,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"
+            android:background="@color/ellipse_4_color"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -38,7 +38,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/encabezado"
         app:menu="@menu/menu_empleado"
-        android:background="#fff"
+        android:background="@color/_bg__sign_in_color"
         app:itemTextColor="#000"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

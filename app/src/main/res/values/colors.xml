@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#58ACFA</color>
     <color name="colorPrimaryDark">#2E64FE</color>
-    <color name="colorAccent">#58ACFA</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -10,4 +10,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="_bg__sign_in_color">#FDF6F6</color>
+    <color name="ellipse_4_color">#FB8484</color>
+    <color name="ellipse_4_color2">#FB8499</color>
+    <color name="sign_up_color">#FFFFFF</color>
+    <color name="full_name_color">#000000</color>
+    <color name="_bg__registration_ek2_color">#FDF6F6</color>
+    <color name="crea_una_cuenta_color">#000000</color>
+    <color name="rectangle_2_color">#FFFFFF</color>
+    <color name="rectangle_1_color">#FB8484</color>
 </resources>
