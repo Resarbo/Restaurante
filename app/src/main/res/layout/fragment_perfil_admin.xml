@@ -18,7 +18,8 @@
             android:textSize="20sp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/FOTOPERFILIMG"
@@ -40,7 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/DNIPERFILTXT"
@@ -62,7 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/NOMBRESPERFILTXT"
@@ -84,14 +87,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/APELLIDOSPERFILTXT"
                 android:text="@string/APELLIDOSPERFILTXT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                />
 
             <TextView
                 android:id="@+id/APELLIDOSPERFIL"
@@ -106,7 +111,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/CORREOPERFILTXT"
@@ -128,7 +134,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/PASSWORDPERFILTXT"
@@ -150,7 +157,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/FECHANACIMINETOPERFILTXT"
@@ -172,7 +180,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/AREAPERFILTXT"
@@ -194,7 +203,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/DESCRIPCIONPERFILTXT"

@@ -1,4 +1,4 @@
-package com.example.restaurante;
+package com.example.restaurante.PDFDrive;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
@@ -7,14 +7,19 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class PDFUploader {
+    public static String lastFileId;
+
+    public static String fileId;
+
     private static final Executor mExecutor = Executors.newSingleThreadExecutor();
     private static Drive mDriveService;
 
-    public PDFUploader(){
+    public PDFUploader(Drive mDriveService){
         this.mDriveService = mDriveService;
     }
 
@@ -22,16 +27,18 @@ public class PDFUploader {
         return Tasks.call(mExecutor, ()-> {
 
             File fileMetaData = new File();
-            fileMetaData.setName("MyPDFFile");
+            fileMetaData.setName("Cartilla");
+
+            // Aquí se establece el ID de la carpeta específica "Cartillas"
+            fileMetaData.setParents(Collections.singletonList("109f6bOYXlgBm4e9NhqoVymjepZ5W7Fdt"));
 
             java.io.File file = new java.io.File(filepath);
-
             FileContent mediaContent = new FileContent("application/pdf",file);
 
             File myFile = null;
 
             try{
-                myFile = mDriveService.files().create(fileMetaData, mediaContent).execute();
+                myFile = mDriveService.files().create(fileMetaData,mediaContent).execute();
             } catch (Exception e){
                 e.printStackTrace();
             }
@@ -40,8 +47,11 @@ public class PDFUploader {
                 throw new IOException("Resultado nulo cuando se solicita el archivo");
             }
 
-            return myFile.getId();
+            fileId = myFile.getId();
+
+            return fileId;
         });
+
     }
 }
 

@@ -20,9 +20,11 @@
         android:id="@+id/etDatos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:editable="false"
         app:layout_constraintBottom_toTopOf="@+id/btnGenerar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="Deprecated" />
 
     <Button
         android:id="@+id/btnGenerar"
@@ -33,7 +35,10 @@
         android:textColor="@color/sign_up_color"
         android:fontFamily="arial"
         android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
