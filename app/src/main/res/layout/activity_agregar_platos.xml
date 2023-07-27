@@ -41,7 +41,6 @@
             <EditText
                 android:id="@+id/PrecioPlato"
                 android:hint="@string/PrecioPlato"
-                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"/>
@@ -69,7 +68,7 @@
             <EditText
                 android:id="@+id/DescripcionPlato"
                 android:hint="@string/DescripcionPlato"
-                android:inputType="textCapWords|textAutoCorrect"
+                android:inputType="textAutoCorrect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"/>

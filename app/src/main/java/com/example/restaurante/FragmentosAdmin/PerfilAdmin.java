@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.restaurante.Conexion;
@@ -21,6 +22,7 @@ public class PerfilAdmin extends Fragment {
     Connection connection = Conexion.connectionclass();
     TextView DNIPERFIL,NOMBRESPERFIL,APELLIDOSPERFIL,CORREOPERFIL,PASSWORDPERFIL,FECHANACIMINETOPERFIL,AREAPERFIL,DESCRIPCIONPERFIL;
 
+    Button ACTUALIZARPASS,ACTUALIZARDATOS;
     int id_usuario=5, id_empleado_tipo=1;
 
     @Override
@@ -36,8 +38,24 @@ public class PerfilAdmin extends Fragment {
         FECHANACIMINETOPERFIL = view.findViewById(R.id.FECHANACIMINETOPERFIL);
         AREAPERFIL = view.findViewById(R.id.AREAPERFIL);
         DESCRIPCIONPERFIL = view.findViewById(R.id.DESCRIPCIONPERFIL);
+        ACTUALIZARPASS = view.findViewById(R.id.ACTUALIZARPASS);
+        ACTUALIZARDATOS = view.findViewById(R.id.ACTUALIZARDATOS);
 
         llenarDatos();
+
+        ACTUALIZARPASS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ACTUALIZARDATOS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }
@@ -66,5 +84,9 @@ public class PerfilAdmin extends Fragment {
             System.out.println(e);
             Log.e("error",e.getMessage());
         }
+    }
+
+    public void actualizarDatos(){
+
     }
 }

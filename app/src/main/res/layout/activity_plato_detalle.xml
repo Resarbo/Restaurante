@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    tools:context=".FragmentosAdmin.PerfilAdmin">
+    tools:context=".Categorias.Plato.PlatoDetalle">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="@string/PERFILADMINISTRADORTXT"
+            android:text="@string/perfilPlato"
             android:textSize="20sp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:src="@drawable/perfil"/>
 
         <TextView
-            android:text="@string/MIINFORMACIONTXT"
+            android:text="@string/detallesPlato"
             android:textSize="20sp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -43,15 +43,15 @@
             android:layout_marginTop="15dp">
 
             <TextView
-                android:id="@+id/DNIPERFILTXT"
-                android:text="@string/DNIPERFILTXT"
+                android:id="@+id/idPlato"
+                android:text="@string/idPlato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/DNIPERFIL"
-                android:text="@string/DNIPERFIL"
+                android:id="@+id/idPlatotxt"
+                android:text="@string/idPlatotxt"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,15 +65,15 @@
             android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/NOMBRESPERFILTXT"
-                android:text="@string/NOMBRESPERFILTXT"
+                android:id="@+id/nombrePlato"
+                android:text="@string/nombrePlato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/NOMBRESPERFIL"
-                android:text="@string/NOMBRESPERFIL"
+                android:id="@+id/nombrePlatotxt"
+                android:text="@string/nombrePlatotxt"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,15 +87,15 @@
             android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/APELLIDOSPERFILTXT"
-                android:text="@string/APELLIDOSPERFILTXT"
+                android:id="@+id/precioPlato"
+                android:text="@string/precioPlato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/APELLIDOSPERFIL"
-                android:text="@string/APELLIDOSPERFIL"
+                android:id="@+id/precioPlatotxt"
+                android:text="@string/precioPlatotxt"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,15 +109,15 @@
             android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/CORREOPERFILTXT"
-                android:text="@string/CORREOPERFILTXT"
+                android:id="@+id/cantidadPlato"
+                android:text="@string/cantidadPlato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/CORREOPERFIL"
-                android:text="@string/CORREOPERFIL"
+                android:id="@+id/cantidadPlatotxt"
+                android:text="@string/cantidadPlatotxt"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,15 +131,15 @@
             android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/PASSWORDPERFILTXT"
-                android:text="@string/PASSWORDPERFILTXT"
+                android:id="@+id/descripcionPlato"
+                android:text="@string/descripcionPlato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/PASSWORDPERFIL"
-                android:text="@string/PASSWORDPERFIL"
+                android:id="@+id/descripcionPlatotxt"
+                android:text="@string/descripcionPlatotxt"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,59 +153,15 @@
             android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/FECHANACIMINETOPERFILTXT"
-                android:text="@string/FECHANACIMINETOPERFILTXT"
+                android:id="@+id/estadoPlato"
+                android:text="@string/estadoPlato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/FECHANACIMINETOPERFIL"
-                android:text="@string/FECHANACIMINETOPERFIL"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-
-            <TextView
-                android:id="@+id/AREAPERFILTXT"
-                android:text="@string/AREAPERFILTXT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:id="@+id/AREAPERFIL"
-                android:text="@string/AREAPERFIL"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
-
-            <TextView
-                android:id="@+id/DESCRIPCIONPERFILTXT"
-                android:text="@string/DESCRIPCIONPERFILTXT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"/>
-
-            <TextView
-                android:id="@+id/DESCRIPCIONPERFIL"
-                android:text="@string/DESCRIPCIONPERFIL"
+                android:id="@+id/estadoPlatotxt"
+                android:text="@string/estadoPlatotxt"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -213,8 +169,8 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <Button
-            android:id="@+id/ACTUALIZARPASS"
-            android:text="@string/ACTUALIZARPASS"
+            android:id="@+id/editarPlato"
+            android:text="@string/editarPlato"
             android:textColor="#fff"
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/editar_icon"
@@ -226,15 +182,15 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/ACTUALIZARDATOS"
-            android:text="@string/ACTUALIZARDATOS"
+            android:id="@+id/borrarPlato"
+            android:text="@string/borrarPlato"
             android:textColor="#fff"
             android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/editar_icon"
+            android:drawableStart="@drawable/borrar_icon"
             android:layout_gravity="center"
             android:padding="10dp"
             android:drawablePadding="15dp"
-            android:background="@drawable/btn_personalizado_dos"
+            android:background="@drawable/btn_personalizado_borrar"
             android:layout_width="230dp"
             android:layout_height="wrap_content"/>
 

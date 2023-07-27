@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.example.restaurante.FragmentosAdmin.CartillaAdmin;
 import com.example.restaurante.FragmentosAdmin.InicioAdmin;
 import com.example.restaurante.FragmentosAdmin.PerfilAdmin;
-import com.example.restaurante.FragmentosAdmin.RegistrarPedido;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivityAdministrador extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -60,10 +59,6 @@ public class MainActivityAdministrador extends AppCompatActivity implements Navi
             case R.id.PerfilAdmin:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerA,
                         new PerfilAdmin()).commit();
-                break;
-            case R.id.ResgistrarPedido:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerA,
-                        new RegistrarPedido()).commit();
                 break;
             case R.id.ListarAdmin:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containerA,

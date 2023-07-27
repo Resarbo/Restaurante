@@ -89,45 +89,6 @@
     <!--Menu parte superior derecha-->
     <string name="Agregar">Agregar</string>
 
-    <!--Agregar Cocina-->
-    <string name="DniTXTCocinero">DNI de cocinero</string>
-    <string name="DniCocinero">Escriba DNI aqui</string>
-    <string name="NombreTXTCocinero">Nombre de cocinero</string>
-    <string name="NombreCocinero">Escriba nombre aqui</string>
-    <string name="ApellidoTXTCocinero">Apellido de cocinero</string>
-    <string name="ApellidoCocinero">Escriba apellido aqui</string>
-    <string name="EdadTXTCocinero">Edad de cocinero</string>
-    <string name="EdadCocinero">Escriba edad aqui</string>
-    <string name="DescripcionTXTCocinero">Descripcion de cocinero</string>
-    <string name="DescripcionCocinero">Escriba descripcion aqui</string>
-    <string name="AgregarCocinero">Agregar</string>
-
-    <!--Agregar Cajero-->
-    <string name="DniTXTCajero">DNI de Cajero</string>
-    <string name="DniCajero">Escriba DNI aqui</string>
-    <string name="NombreTXTCajero">Nombre de cajero</string>
-    <string name="NombreCajero">Escriba nombre aqui</string>
-    <string name="ApellidoTXTCajero">Apellido de cajero</string>
-    <string name="ApellidoCajero">Escriba apellido aqui</string>
-    <string name="EdadTXTCajero">Edad de cajero</string>
-    <string name="EdadCajero">Escriba edad aqui</string>
-    <string name="DescripcionTXTCajero">Descripcion de cajero</string>
-    <string name="DescripcionCajero">Escriba descripcion aqui</string>
-    <string name="AgregarCajero">Agregar</string>
-
-    <!--Agregar Mesero-->
-    <string name="DniTXTMesero">DNI de mesero</string>
-    <string name="DniMesero">Escriba DNI aqui</string>
-    <string name="NombreTXTMesero">Nombre de mesero</string>
-    <string name="NombreMesero">Escriba nombre aqui</string>
-    <string name="ApellidoTXTMesero">Apellido de mesero</string>
-    <string name="ApellidoMesero">Escriba apellido aqui</string>
-    <string name="EdadTXTMesero">Edad de mesero</string>
-    <string name="EdadMesero">Escriba edad aqui</string>
-    <string name="DescripcionTXTMesero">Descripcion de mesero</string>
-    <string name="DescripcionMesero">Escriba descripcion aqui</string>
-    <string name="AgregarMesero">Agregar</string>
-
     <!--Agregar Plato-->
     <string name="IdTXTPlato">ID de mesero</string>
     <string name="IdPlato">Escriba ID aqui</string>
@@ -158,6 +119,23 @@
     <string name="PrecioTotalPedido">Precio Total</string>
     <string name="RegistrarPedido">Registrar</string>
 
+    <!--Perfil plato-->
+    <string name="perfilPlato">PLATO</string>
+    <string name="detallesPlato">Detalles plato</string>
+    <string name="idPlato">ID:</string>
+    <string name="idPlatotxt">--</string>
+    <string name="nombrePlato">Nombre:</string>
+    <string name="nombrePlatotxt">--</string>
+    <string name="precioPlato">Precio:</string>
+    <string name="precioPlatotxt">--</string>
+    <string name="cantidadPlato">Cantidad:</string>
+    <string name="cantidadPlatotxt">--</string>
+    <string name="descripcionPlato">Descripcion:</string>
+    <string name="descripcionPlatotxt">--</string>
+    <string name="estadoPlato">Estado:</string>
+    <string name="estadoPlatotxt">--</string>
+    <string name="editarPlato">EDITAR PLATO</string>
+    <string name="borrarPlato">BORRAR PLATO</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

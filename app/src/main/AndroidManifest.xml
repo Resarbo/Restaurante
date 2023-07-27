@@ -14,7 +14,13 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".PedidosA"
+            android:name=".Categorias.Plato.PlatoDetalle"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Pedidos.AgregarPedidos"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias.Pedidos.PedidosA"
             android:exported="false" />
         <activity
             android:name=".Categorias.Empleados.AgregarEmpleado"

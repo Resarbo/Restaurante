@@ -21,6 +21,8 @@ public class AgregarPlatos extends AppCompatActivity {
     TextView NombrePlato, CantidadPlato, DescripcionPlato, PrecioPlato;
     Button AgregarPlato;
 
+    int estado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +53,12 @@ public class AgregarPlatos extends AppCompatActivity {
         Connection connection = Conexion.connectionclass();
         try{
             if(connection!= null){
-                String query =  "Insert into Platos values ('" + NombrePlato.getText().toString() + "','"
+                String query =  "Insert into Platos values ('"
+                        + NombrePlato.getText().toString() + "','"
                         + PrecioPlato.getText().toString() + "','"
                         + CantidadPlato.getText().toString() + "','"
-                        + DescripcionPlato.getText().toString() + "')";
+                        + DescripcionPlato.getText().toString() + "','"
+                        + estado + "')";
                 Statement st = connection.createStatement();
                 ResultSet rs = st.executeQuery(query);
             }

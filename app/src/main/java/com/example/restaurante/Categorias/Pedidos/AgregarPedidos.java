@@ -1,9 +1,11 @@
-package com.example.restaurante.FragmentosAdmin;
+package com.example.restaurante.Categorias.Pedidos;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,8 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
+import com.example.restaurante.Categorias.Plato.AgregarPlatos;
+import com.example.restaurante.Categorias.Plato.PlatosA;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
@@ -22,27 +24,30 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class RegistrarPedido extends Fragment {
-
+public class AgregarPedidos extends AppCompatActivity {
     Connection connection = Conexion.connectionclass();
 
     TextView PrecioUnitarioPedido, PrecioTotalPedido,CantidadPedido;
     Button RegistrarPedido;
     Spinner tipoPlato;
 
-    int idplato, cantidad,idempleado=7, idpedido;
+    int idplato, cantidad,idempleado=7, idpedido,estado;
     float precioU, precioT;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_registro_pedido, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agregar_pedidos);
 
-        PrecioUnitarioPedido = view.findViewById(R.id.PrecioUnitarioPedido);
-        PrecioTotalPedido = view.findViewById(R.id.PrecioTotalPedido);
-        CantidadPedido = view.findViewById(R.id.CantidadPedido);
-        tipoPlato = view.findViewById(R.id.tipoPlato);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Agregar");
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
+        PrecioUnitarioPedido = findViewById(R.id.PrecioUnitarioPedido);
+        PrecioTotalPedido = findViewById(R.id.PrecioTotalPedido);
+        CantidadPedido = findViewById(R.id.CantidadPedido);
+        tipoPlato = findViewById(R.id.tipoPlato);
 
         llenarSpiner();
 
@@ -57,17 +62,13 @@ public class RegistrarPedido extends Fragment {
             }
         });
 
-
-
-        RegistrarPedido = view.findViewById(R.id.RegistrarPedido);
+        RegistrarPedido = findViewById(R.id.RegistrarPedido);
         RegistrarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registrarPedido();
             }
         });
-        return view;
-
     }
 
     public void llenarSpiner(){
@@ -80,7 +81,7 @@ public class RegistrarPedido extends Fragment {
                 String name = rs.getString("nombre");
                 data.add(name);
             }
-            ArrayAdapter arrayAdapter = new ArrayAdapter<>(getActivity(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
+            ArrayAdapter arrayAdapter = new ArrayAdapter<>(AgregarPedidos.this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, data);
             tipoPlato.setAdapter(arrayAdapter);
         }catch (Exception e){
             System.out.println(e);
@@ -105,7 +106,7 @@ public class RegistrarPedido extends Fragment {
             PrecioUnitarioPedido.setText(String.valueOf(precioU));
             PrecioTotalPedido.setText(String.valueOf(precioT));
         }catch (Exception e){
-            Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(AgregarPedidos.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);
         }
     }
@@ -122,7 +123,8 @@ public class RegistrarPedido extends Fragment {
             if (connection != null) {
                 String queryp = "Insert into Pedido values('"
                         + idempleado + "','"
-                        + PrecioTotalPedido.getText().toString() + "')";
+                        + PrecioTotalPedido.getText().toString() + "','"
+                        + estado + "')";
                 Statement st1 = connection.createStatement();
                 boolean rs1 = st1.execute(queryp);
             }
@@ -141,11 +143,20 @@ public class RegistrarPedido extends Fragment {
                         + CantidadPedido.getText().toString() + "')";
                 Statement st2 = connection.createStatement();
                 boolean rs2 = st2.execute(querypd);
-                Toast.makeText(getActivity(),"PEDIDO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AgregarPedidos.this,"PEDIDO REGISTRADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
             }
+
+            startActivity(new Intent(AgregarPedidos.this, PedidosA.class));
+            finish();
         }catch (Exception e){
-            Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(AgregarPedidos.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);
         }
-     }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }
