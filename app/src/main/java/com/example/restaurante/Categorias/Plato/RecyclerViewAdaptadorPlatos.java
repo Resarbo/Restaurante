@@ -50,9 +50,9 @@ public class RecyclerViewAdaptadorPlatos extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.NombreTXTPlato.setText(cocineroPlato.get(position).getNombre());
         holder.DescripcionTXTPlato.setText(cocineroPlato.get(position).getDescripcion());
-        holder.PrecioTXTPlato.setText(String.valueOf(cocineroPlato.get(position).getPrecio()));
-        holder.IdTXTPlato.setText(String.valueOf(cocineroPlato.get(position).getId()));
-        holder.CantidadTXTPlato.setText(String.valueOf(cocineroPlato.get(position).getCantidad()));
+        holder.PrecioTXTPlato.setText("S/" + String.valueOf(cocineroPlato.get(position).getPrecio()));
+        holder.IdTXTPlato.setText(null);
+        holder.CantidadTXTPlato.setText("disponible: "+String.valueOf(cocineroPlato.get(position).getCantidad()));
         byte[] imagenBytes = cocineroPlato.get(position).getImagen();
         Bitmap bitmapImagen = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
         Bitmap result = Bitmap.createScaledBitmap(bitmapImagen, 200, 200, false);
