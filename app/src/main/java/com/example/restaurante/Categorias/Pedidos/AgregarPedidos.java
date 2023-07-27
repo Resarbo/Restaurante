@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.restaurante.Categorias.Plato.AgregarPlatos;
 import com.example.restaurante.Categorias.Plato.PlatosA;
 import com.example.restaurante.Conexion;
+import com.example.restaurante.InicioSesion;
 import com.example.restaurante.R;
 
 import java.sql.Connection;
@@ -31,7 +32,7 @@ public class AgregarPedidos extends AppCompatActivity {
     Button RegistrarPedido;
     Spinner tipoPlato;
 
-    int idplato, cantidad,idempleado=7, idpedido,estado;
+    int idplato, cantidad,idempleado= InicioSesion.id_empleado, idpedido,estado;
     float precioU, precioT;
 
     @Override
@@ -80,7 +81,7 @@ public class AgregarPedidos extends AppCompatActivity {
         RegistrarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (RegistrarPedido.getText().equals("REGISTRAR")){
+                if (RegistrarPedido.getText().equals("Registrar")){
                     registrarPedido();
                 } else if (RegistrarPedido.getText().equals("Actualizar")) {
                     ActualizarPedido();
@@ -158,6 +159,7 @@ public class AgregarPedidos extends AppCompatActivity {
 
             PrecioUnitarioPedido.setText(String.valueOf(precioU));
             PrecioTotalPedido.setText(String.valueOf(precioT));
+            Toast.makeText(this, idempleado, Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             Toast.makeText(AgregarPedidos.this,e.getMessage(),Toast.LENGTH_SHORT).show();
             System.out.println(e);

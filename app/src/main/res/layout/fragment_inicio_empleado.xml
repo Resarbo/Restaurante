@@ -37,15 +37,15 @@
             android:layout_marginTop="10dp"
             android:weightSum="2">
 
-            <!--Empleados-->
+            <!--Pedidos-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/btn_personalizado"
                 android:layout_margin="20px"
                 android:paddingTop="10px"
+                android:gravity="center"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -59,13 +59,13 @@
                         android:layout_height="180dp"
                         android:paddingLeft="50px"
                         android:paddingRight="50px"
-                        android:src="@drawable/empleados"/>
+                        android:src="@drawable/pedido2"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
-                    android:id="@+id/Empleados"
-                    android:text="@string/Empleados"
+                    android:id="@+id/Pedidos"
+                    android:text="@string/Pedidos"
                     android:background="@drawable/btn_personalizado"
                     android:textColor="#fff"
                     android:textStyle="bold"
@@ -123,12 +123,12 @@
             android:layout_marginTop="10dp"
             android:weightSum="2">
 
-            <!--Pedidos-->
+            <!--Administradores-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/btn_personalizado"
+                android:background="@drawable/btn_personalizadocb"
                 android:layout_margin="20px"
                 android:paddingTop="10px"
                 android:gravity="center"
@@ -137,25 +137,20 @@
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="180dp"
                     android:layout_height="160dp"
-                    android:layout_margin="40px"
-                    android:background="@drawable/rectangle_2_ek1_shape">
+                    android:layout_margin="39px"
+                    android:background="@drawable/btn_personalizadocb">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="180dp"
                         android:layout_height="180dp"
                         android:paddingLeft="50px"
-                        android:paddingRight="50px"
-                        android:src="@drawable/pedido2"/>
+                        android:paddingRight="50px"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
-                    android:id="@+id/Pedidos"
-                    android:text="@string/Pedidos"
-                    android:background="@drawable/btn_personalizado"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:textSize="38px"
+                    android:background="@drawable/btn_personalizadocb"
+                    android:enabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 

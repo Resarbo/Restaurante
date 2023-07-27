@@ -35,7 +35,7 @@ public class PDFGenerator extends AppCompatActivity {
         Connection connection = Conexion.connectionclass();
 
         // Consulta SQL para obtener los datos de la base de datos
-        String query =  "SELECT nombre, precio, cantidad, descripcion FROM `Platos`";
+        String query =  "SELECT nombre, precio, cantidad, descripcion FROM Platos";
 
         try {
             // Crear el documento PDF

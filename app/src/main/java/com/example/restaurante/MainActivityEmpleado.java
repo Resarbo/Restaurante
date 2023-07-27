@@ -7,12 +7,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.restaurante.FragmentosEmpleado.AcercaDeCliente;
-import com.example.restaurante.FragmentosEmpleado.CompartirCliente;
 import com.example.restaurante.FragmentosEmpleado.InicioEmpleado;
+import com.example.restaurante.FragmentosEmpleado.PerfilEmpleado;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivityEmpleado extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -56,18 +57,19 @@ public class MainActivityEmpleado extends AppCompatActivity implements Navigatio
                 break;
             case R.id.PerfilEmpleado:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AcercaDeCliente()).commit();
-                break;
-            case R.id.PedidosEmpleado:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AcercaDeCliente()).commit();
+                        new PerfilEmpleado()).commit();
                 break;
             case R.id.SalirEmpleado:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new CompartirCliente()).commit();
+                startActivity(new Intent(MainActivityEmpleado.this, InicioSesion.class));
+                finish();
+                CerrarSesion();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void CerrarSesion(){
+        Toast.makeText(this,"Cerraste sesion exitosamente",Toast.LENGTH_SHORT).show();
     }
 }
