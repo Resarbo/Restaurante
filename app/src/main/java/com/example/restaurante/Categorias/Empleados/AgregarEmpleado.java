@@ -183,7 +183,7 @@ public class AgregarEmpleado extends AppCompatActivity {
             tipoUser = rs2.getInt(1);
 
             if(connection!= null){
-                String query =  "Insert into Empleado values ('"
+                String query =  "Insert into Empleado values (NULL,'"
                         + tipoEmp + "','"
                         + tipoUser + "','"
                         + Nombres.getText().toString() + "','"

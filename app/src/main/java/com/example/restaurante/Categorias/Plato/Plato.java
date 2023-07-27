@@ -7,12 +7,30 @@ public class Plato {
     private int cantidad;
     private String descripcion;
 
+    private byte[] imagen;
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
     public Plato(int id, String nombre, float precio, int cantidad, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
         this.descripcion = descripcion;
+    }
+    public Plato(int id, String nombre, float precio, int cantidad, String descripcion, byte[] imagen) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.descripcion = descripcion;
+        this.imagen=imagen;
     }
 
     public Plato() {

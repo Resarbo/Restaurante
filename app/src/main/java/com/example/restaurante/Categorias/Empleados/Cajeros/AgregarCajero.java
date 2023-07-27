@@ -48,7 +48,7 @@ public class AgregarCajero extends AppCompatActivity {
         Dni = findViewById(R.id.Dni);
         Descripcion = findViewById(R.id.Descripcion);
 
-        usuarioEmpleado = findViewById(R.id.usuarioEmpleado);
+        usuarioEmpleado = findViewById(R.id.usuarioEmpleadoCajero);
 
         llenarSpinerUsuario();
 
@@ -89,7 +89,7 @@ public class AgregarCajero extends AppCompatActivity {
             tipoUser = rs2.getInt(1);
 
             if(connection!= null){
-                String query =  "Insert into Empleado values ('"
+                String query =  "Insert into Empleado values (NULL,'"
                         + tipoEmp + "','"
                         + tipoUser + "','"
                         + Nombres.getText().toString() + "','"

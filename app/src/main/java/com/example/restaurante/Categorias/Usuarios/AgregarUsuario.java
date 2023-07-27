@@ -102,7 +102,7 @@ public class AgregarUsuario extends AppCompatActivity {
                 tipoUser = 2;
             }
             if(connection!= null){
-                String query =  "Insert into Usuario values ('"
+                String query =  "Insert into Usuario values (NULL,'"
                         + tipoUser + "','"
                         + CorreoAdmin.getText().toString() + "','"
                         + PasswordAdmin.getText().toString() + "')";
