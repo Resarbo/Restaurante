@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation_view"
+    android:background="@color/ellipse_4_color">
 
     <group
         android:checkableBehavior="single">
@@ -30,5 +31,6 @@
             android:title="@string/Salir"
             android:icon="@drawable/baseline_exit_to_app_24"/>
     </group>
+
 
 </menu>

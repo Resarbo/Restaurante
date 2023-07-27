@@ -14,11 +14,18 @@
         android:padding="10dp">
 
         <TextView
-            android:text="@string/Eligeunacategoriatxt"
+            android:text="Categorías"
             android:textColor="#000"
-            android:gravity="center"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="@string/Eligeunacategoriatxt"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:paddingStart="10px"
+            android:layout_marginTop="10px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -36,19 +43,33 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
+                android:background="@drawable/btn_personalizado"
+                android:layout_margin="20px"
+                android:paddingTop="10px"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:src="@drawable/empleados"/>
+                    android:layout_height="160dp"
+                    android:layout_margin="40px"
+                    android:background="@drawable/rectangle_2_ek1_shape">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:paddingLeft="50px"
+                        android:paddingRight="50px"
+                        android:src="@drawable/empleados"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
                     android:id="@+id/Empleados"
                     android:text="@string/Empleados"
                     android:background="@drawable/btn_personalizado"
                     android:textColor="#fff"
-                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="38px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -59,21 +80,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@drawable/btn_personalizado"
+                android:layout_margin="20px"
+                android:paddingTop="10px"
                 android:gravity="center"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:src="@drawable/platos"/>
+                    android:layout_height="160dp"
+                    android:layout_margin="39px"
+                    android:background="@drawable/rectangle_2_ek1_shape">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:paddingLeft="50px"
+                        android:paddingRight="50px"
+                        android:src="@drawable/plato2"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
                     android:id="@+id/Platos"
                     android:text="@string/Platos"
                     android:background="@drawable/btn_personalizado"
                     android:textColor="#fff"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="5dp"
+                    android:textStyle="bold"
+                    android:textSize="38px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -87,29 +121,74 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:weightSum="1">
+            android:weightSum="2">
 
             <!--Pedidos-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="@drawable/btn_personalizado"
+                android:layout_margin="20px"
+                android:paddingTop="10px"
                 android:gravity="center"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    android:src="@drawable/pedidos"/>
+                    android:layout_height="160dp"
+                    android:layout_margin="40px"
+                    android:background="@drawable/rectangle_2_ek1_shape">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:paddingLeft="50px"
+                        android:paddingRight="50px"
+                        android:src="@drawable/pedido2"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <Button
                     android:id="@+id/Pedidos"
                     android:text="@string/Pedidos"
                     android:background="@drawable/btn_personalizado"
                     android:textColor="#fff"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="90dp"
-                    android:layout_marginEnd="90dp"
+                    android:textStyle="bold"
+                    android:textSize="38px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Administradores-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/btn_personalizadocb"
+                android:layout_margin="20px"
+                android:paddingTop="10px"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="180dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="39px"
+                    android:background="@drawable/btn_personalizadocb">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:paddingLeft="50px"
+                        android:paddingRight="50px"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <Button
+                    android:background="@drawable/btn_personalizadocb"
+                    android:enabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
