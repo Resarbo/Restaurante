@@ -44,7 +44,7 @@ public class PlatosA extends AppCompatActivity {
         recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorPlatos.OnClickListener() {
             @Override
             public void onClick(int position, Plato model) {
-                startActivity(new Intent(PlatosA.this, PlatoDetalle.class));
+
             }
         });
     }

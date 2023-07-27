@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +17,8 @@ import com.example.restaurante.Categorias.Empleados.Cajeros.CajaA;
 import com.example.restaurante.Categorias.Empleados.Cocina.AgregarCocina;
 import com.example.restaurante.Categorias.Empleados.Cocina.CocinaA;
 import com.example.restaurante.Categorias.Empleados.Meseros.MesasA;
+import com.example.restaurante.Categorias.Plato.AgregarPlatos;
+import com.example.restaurante.Categorias.Plato.PlatosA;
 import com.example.restaurante.Conexion;
 import com.example.restaurante.R;
 
@@ -33,7 +36,7 @@ public class AgregarEmpleado extends AppCompatActivity {
     Spinner tipoEmpleado,usuarioEmpleado;
     Button Registrar;
 
-    int tipoEmp, tipoUser;
+    int tipoEmp, tipoUser, idEmpleado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +56,81 @@ public class AgregarEmpleado extends AppCompatActivity {
 
         tipoEmpleado = findViewById(R.id.tipoEmpleado);
         usuarioEmpleado = findViewById(R.id.usuarioEmpleado);
+        Registrar = findViewById(R.id.Registrar);
 
         llenarSpinerEmpleado();
         llenarSpinerUsuario();
 
-        Registrar = findViewById(R.id.Registrar);
+        Bundle intent = getIntent().getExtras();
+        if(intent != null){
+            //setear
+            Nombres.setText(intent.getString("nombre"));
+            Apellidos.setText(intent.getString("apellido"));
+            FechaNacimiento.setText(intent.getString("fecha"));
+            Dni.setText(intent.getString("dni"));
+            Descripcion.setText(intent.getString("descripcion"));
+            idEmpleado = Integer.parseInt(intent.getString("idEmpleado"));
+
+            actionBar.setTitle("Actualizar");
+            String actualizar = "Actualizar";
+            Registrar.setText(actualizar);
+        }
+
         Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegistrarEmpleado();
+                if (Registrar.getText().equals("REGISTRAR")){
+                    RegistrarEmpleado();
+                } else if (Registrar.getText().equals("Actualizar")) {
+                    ActualizarPlato();
+                }
             }
         });
+    }
+
+    private void ActualizarPlato() {
+        Connection connection = Conexion.connectionclass();
+        try{
+            String queryEmp = "select id_empleado_tipo from Tipos_empleado where nombre = '"+ tipoEmpleado.getSelectedItem().toString() +"'";
+            Statement st1 = connection.createStatement();
+            ResultSet rs1 = st1.executeQuery(queryEmp);
+            rs1.next();
+            tipoEmp = rs1.getInt(1);
+
+            String queryUser = "select id_usuario from Usuario where correo = '"+ usuarioEmpleado.getSelectedItem().toString() +"'";
+            Statement st2 = connection.createStatement();
+            ResultSet rs2 = st2.executeQuery(queryUser);
+            rs2.next();
+            tipoUser = rs2.getInt(1);
+
+            if(connection!= null){
+                String query =  "update Empleado set " +
+                        "id_empleado_tipo='"+tipoEmp+"', " +
+                        "id_usuario='"+tipoUser+"'," +
+                        "nombre='"+Nombres.getText().toString()+"'," +
+                        "apellido='"+Apellidos.getText().toString()+"'," +
+                        "fecha_nacimiento='"+FechaNacimiento.getText().toString()+"'," +
+                        "descripcion='"+Descripcion.getText().toString()+"'," +
+                        "dni='"+Dni.getText().toString()+"' where " +
+                        "id_empleado='"+idEmpleado+"'";
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(query);
+            }
+        }catch (Exception e){
+            Log.e("error",e.getMessage());
+        }
+        switch (tipoEmp){
+            case 1 :
+                startActivity(new Intent(AgregarEmpleado.this, CocinaA.class));
+                break;
+            case 2 :
+                startActivity(new Intent(AgregarEmpleado.this, CajaA.class));
+                break;
+            case 3 :
+                startActivity(new Intent(AgregarEmpleado.this, MesasA.class));
+                break;
+        }
+        finish();
     }
 
     public void llenarSpinerEmpleado(){

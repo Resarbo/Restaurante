@@ -1,5 +1,7 @@
 package com.example.restaurante.Categorias.Plato;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +18,12 @@ public class RecyclerViewAdaptadorPlatos extends RecyclerView.Adapter<RecyclerVi
     private OnClickListener onClickListener;
     public List<Plato> cocineroPlato;
     public static class ViewHolder extends RecyclerView.ViewHolder{
+        Context context;
         private TextView NombreTXTPlato, PrecioTXTPlato, IdTXTPlato,CantidadTXTPlato,DescripcionTXTPlato;
 
         public ViewHolder(View view){
             super(view);
+            context = view.getContext();
             NombreTXTPlato = (TextView)view.findViewById(R.id.NombreTXTPlato);
             IdTXTPlato = (TextView)view.findViewById(R.id.IdTXTPlato);
             PrecioTXTPlato = (TextView)view.findViewById(R.id.PrecioTXTPlato);
@@ -52,6 +56,9 @@ public class RecyclerViewAdaptadorPlatos extends RecyclerView.Adapter<RecyclerVi
             public void onClick(View v) {
                 if (onClickListener != null) {
                     onClickListener.onClick(holder.getAdapterPosition(), item);
+                    Intent intent = new Intent(holder.context, PlatoDetalle.class);
+                    intent.putExtra("idPlato",holder.IdTXTPlato.getText());
+                    holder.context.startActivity(intent);
                 }
             }
         });

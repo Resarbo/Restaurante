@@ -137,6 +137,60 @@
     <string name="editarPlato">EDITAR PLATO</string>
     <string name="borrarPlato">BORRAR PLATO</string>
 
+    <!--Perfil usuario-->
+    <string name="perfilUsuario">Usuario</string>
+    <string name="detallesUsuario">Detalles usuario</string>
+    <string name="idUsuario">ID:</string>
+    <string name="idUsuariotxt">--</string>
+    <string name="correoUsuario">Correo:</string>
+    <string name="correoUsuariotxt">--</string>
+    <string name="contrasenaUsuario">Contraseña:</string>
+    <string name="contrasenaUsuariotxt">--</string>
+    <string name="tipoUsuario">Tipo:</string>
+    <string name="tipoUsuariotxt">--</string>
+    <string name="editarUsuario">EDITAR USUARIO</string>
+    <string name="borrarUsuario">BORRAR USUARIO</string>
+
+    <!--Perfil Pedido-->
+    <string name="perfilPedido">Pedido</string>
+    <string name="detallesPedido">Detalles pedido</string>
+    <string name="idPedido">ID:</string>
+    <string name="idPedidotxt">--</string>
+    <string name="platoPedido">Plato:</string>
+    <string name="platoPedidotxt">--</string>
+    <string name="cantidadPedido">Cantidad:</string>
+    <string name="cantidadPedidotxt">--</string>
+    <string name="precioPedido">Precio Plato:</string>
+    <string name="precioPedidotxt">--</string>
+    <string name="montoTotal">Monto Total:</string>
+    <string name="montoTotaltxt">--</string>
+    <string name="estadoPedido">Tipo:</string>
+    <string name="estadoPedidotxt">--</string>
+    <string name="editarPedido">EDITAR PEDIDO</string>
+    <string name="cambiarEstado">CAMBIAR ESTADO</string>
+
+    <!--Perfil empleado-->
+    <string name="perfilEmpleado">Empleado</string>
+    <string name="detallesEmpleado">Detalles empleado</string>
+    <string name="idEmpleado">ID:</string>
+    <string name="idEmpleadotxt">--</string>
+    <string name="nombresEmpleado">Nombres:</string>
+    <string name="nombresEmpleadotxt">--</string>
+    <string name="apellidoEmpleado">Apellido:</string>
+    <string name="apellidoEmpleadotxt">--</string>
+    <string name="fechaEmpleado">Fecha:</string>
+    <string name="fechaEmpleadotxt">--</string>
+    <string name="dniEmpleado">DNI:</string>
+    <string name="dniEmpleadotxt">--</string>
+    <string name="descripcionEmplead">Descripcion:</string>
+    <string name="descripcionEmpleadtxt">--</string>
+    <string name="areaEmpleado">Area:</string>
+    <string name="areaEmpleadotxt">--</string>
+    <string name="usuarioEmpleado">Usuario:</string>
+    <string name="usuarioEmpleadotxt">--</string>
+    <string name="editarEmpleado">EDITAR EMPLEADO</string>
+    <string name="borrarEmpleado">BORRAR EMPLEADO</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -49,6 +49,8 @@ public class AgregarPedidos extends AppCompatActivity {
         CantidadPedido = findViewById(R.id.CantidadPedido);
         tipoPlato = findViewById(R.id.tipoPlato);
 
+        RegistrarPedido = findViewById(R.id.RegistrarPedido);
+
         llenarSpiner();
 
         tipoPlato.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -62,13 +64,64 @@ public class AgregarPedidos extends AppCompatActivity {
             }
         });
 
-        RegistrarPedido = findViewById(R.id.RegistrarPedido);
+        Bundle intent = getIntent().getExtras();
+        if(intent != null){
+            //setear
+            CantidadPedido.setText(intent.getString("cantidad"));
+            PrecioUnitarioPedido.setText(intent.getString("precio"));
+            PrecioTotalPedido.setText(intent.getString("monto"));
+            idpedido = Integer.parseInt(intent.getString("idPedido"));
+
+            actionBar.setTitle("Actualizar");
+            String actualizar = "Actualizar";
+            RegistrarPedido.setText(actualizar);
+        }
+
         RegistrarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrarPedido();
+                if (RegistrarPedido.getText().equals("REGISTRAR")){
+                    registrarPedido();
+                } else if (RegistrarPedido.getText().equals("Actualizar")) {
+                    ActualizarPedido();
+                }
             }
         });
+    }
+
+    private void ActualizarPedido() {
+        Connection connection = Conexion.connectionclass();
+        try {
+            String queryPlato = "select id_plato from Platos where nombre = '" + tipoPlato.getSelectedItem().toString() + "'";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(queryPlato);
+            rs.next();
+            idplato = rs.getInt(1);
+
+            if (connection != null) {
+                String queryp = "update Pedido set " +
+                        "monto_total = '"+PrecioTotalPedido.getText().toString()+"' where " +
+                        "id_pedido='"+idpedido+"'";
+                Statement st1 = connection.createStatement();
+                boolean rs1 = st1.execute(queryp);
+            }
+
+            if (connection != null) {
+                String querypd = "update Pedido_detalle set id_plato = '"+idplato+"', " +
+                        "precio='"+PrecioUnitarioPedido.getText().toString()+"', " +
+                        "cantidad='"+CantidadPedido.getText().toString()+"' where " +
+                        "id_pedido_detalle='"+idpedido+"'";
+                Statement st2 = connection.createStatement();
+                boolean rs2 = st2.execute(querypd);
+                Toast.makeText(AgregarPedidos.this,"PEDIDO ACTUALIZADO EXITOSAMENTE",Toast.LENGTH_SHORT).show();
+            }
+
+            startActivity(new Intent(AgregarPedidos.this, PedidosA.class));
+            finish();
+        }catch (Exception e){
+            Toast.makeText(AgregarPedidos.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            System.out.println(e);
+        }
     }
 
     public void llenarSpiner(){

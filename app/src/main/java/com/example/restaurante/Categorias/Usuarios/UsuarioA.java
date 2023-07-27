@@ -41,6 +41,13 @@ public class UsuarioA extends AppCompatActivity {
 
         recyclerViewAdaptador = new RecyclerViewAdaptadorUsuarios(obtenerAdministradores());
         recyclerViewAdministrador.setAdapter(recyclerViewAdaptador);
+
+        recyclerViewAdaptador.setOnClickListener(new RecyclerViewAdaptadorUsuarios.OnClickListener() {
+            @Override
+            public void onClick(int position, Usuario model) {
+
+            }
+        });
     }
 
     private List<Usuario> obtenerAdministradores() {
@@ -49,7 +56,7 @@ public class UsuarioA extends AppCompatActivity {
             Statement st = Conexion.connectionclass().createStatement();
             ResultSet rs = st.executeQuery("select u.id_usuario,u.id_usuario_tipo,u.correo,u.contrasena,t.nombre from Usuario u, Tipos_usuario t where u.id_usuario_tipo = t.id_usuario_tipo");
             while(rs.next()){
-                administradores.add(new Usuario(rs.getInt("id_usuario"), rs.getInt("id_usuario_tipo"), rs.getString("correo"), rs.getString("contrasena"), rs.getString("nombre")));
+                administradores.add(new Usuario(rs.getInt("id_usuario_tipo"), rs.getInt("id_usuario"), rs.getString("correo"), rs.getString("contrasena"), rs.getString("nombre")));
             }
         }catch (Exception e){
             Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
