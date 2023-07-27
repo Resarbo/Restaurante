@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.restaurante.Conexion;
+import com.example.restaurante.InicioSesion;
 import com.example.restaurante.R;
 
 import java.sql.ResultSet;
@@ -83,8 +84,12 @@ public class PlatosA extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.Agregar:
                 Toast.makeText(this, "Agregar", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(PlatosA.this, AgregarPlatos.class));
-                finish();
+                if(InicioSesion.id_tipo_empleado==3){
+                    Toast.makeText(this, "No jodas", Toast.LENGTH_SHORT).show();
+                }else{
+                    startActivity(new Intent(PlatosA.this, AgregarPlatos.class));
+                    finish();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);

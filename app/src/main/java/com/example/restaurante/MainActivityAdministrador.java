@@ -7,10 +7,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.restaurante.Categorias.Plato.AgregarPlatos;
+import com.example.restaurante.Categorias.Plato.PlatosA;
 import com.example.restaurante.FragmentosAdmin.CartillaAdmin;
 import com.example.restaurante.FragmentosAdmin.InicioAdmin;
 import com.example.restaurante.FragmentosAdmin.PerfilAdmin;
@@ -65,6 +68,8 @@ public class MainActivityAdministrador extends AppCompatActivity implements Navi
                         new CartillaAdmin()).commit();
                 break;
             case R.id.Salir:
+                startActivity(new Intent(MainActivityAdministrador.this, InicioSesion.class));
+                finish();
                 CerrarSesion();
                 break;
         }

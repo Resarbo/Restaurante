@@ -1,4 +1,4 @@
-package com.example.restaurante.FragmentosAdmin;
+package com.example.restaurante.FragmentosEmpleado;
 
 import android.os.Bundle;
 
@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.restaurante.Conexion;
 import com.example.restaurante.InicioSesion;
@@ -20,7 +18,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class PerfilAdmin extends Fragment {
+public class PerfilEmpleado extends Fragment {
+
     Connection connection = Conexion.connectionclass();
     TextView DNIPERFIL,NOMBRESPERFIL,APELLIDOSPERFIL,CORREOPERFIL,PASSWORDPERFIL,FECHANACIMINETOPERFIL,AREAPERFIL,DESCRIPCIONPERFIL;
 
@@ -29,7 +28,7 @@ public class PerfilAdmin extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_perfil_admin, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil_empleado, container, false);
 
         DNIPERFIL = view.findViewById(R.id.DNIPERFIL);
         NOMBRESPERFIL = view.findViewById(R.id.NOMBRESPERFIL);

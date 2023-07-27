@@ -18,10 +18,6 @@
                 android:title="@string/PerfilEmpleado"
                 android:icon="@drawable/dos_icon"/>
             <item
-                android:id="@+id/PedidosEmpleado"
-                android:title="@string/PedidosEmpleado"
-                android:icon="@drawable/tres_icon"/>
-            <item
                 android:id="@+id/SalirEmpleado"
                 android:title="@string/SalirEmpleado"
                 android:icon="@drawable/cuatro_icon"/>

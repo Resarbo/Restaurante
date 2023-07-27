@@ -22,7 +22,7 @@ public class AgregarPlatos extends AppCompatActivity {
     TextView NombrePlato, CantidadPlato, DescripcionPlato, PrecioPlato;
     Button AgregarPlato;
 
-    int estado, idPlato;
+    int estado=0, idPlato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class AgregarPlatos extends AppCompatActivity {
         AgregarPlato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (AgregarPlato.getText().equals("AGREGAR")){
+                if (AgregarPlato.getText().equals("Agregar")){
                     SubirPlato();
                 } else if (AgregarPlato.getText().equals("Actualizar")) {
                     ActualizarPlato();
